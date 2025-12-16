@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>矩阵乘法动画版可视化</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="./tailwindcss-3.4.17.js"></script>
+    <!-- Font Awesome -->
+    <link href="./font-awesome.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6",
+              secondary: "#60a5fa",
+              accent: "#2563eb",
+              neutral: "#f3f4f6",
+              "neutral-dark": "#e5e7eb",
+              success: "#10b981",
+              warning: "#f59e0b",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              "inner-lg": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+              card: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+              "card-hover":
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            },
+            transitionProperty: {
+              height: "height",
+              spacing: "margin, padding",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .matrix-cell {
+          @apply w-16 h-16 flex items-center justify-center text-lg font-medium border border-gray-300 bg-white transition-all duration-300 shadow-sm hover:shadow-inner;
+        }
+        .matrix-cell-highlighted {
+          @apply bg-blue-100 border-blue-400 shadow-inner;
+        }
+        .matrix-cell-active {
+          @apply bg-blue-200 border-blue-500 shadow-inner-lg;
+        }
+        .matrix-cell-result {
+          @apply bg-green-100 border-green-400 shadow-inner-lg;
+        }
+        .btn {
+          @apply px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-105 active:scale-95;
+        }
+        .btn-primary {
+          @apply bg-primary text-white hover:bg-accent focus:ring-blue-500 shadow hover:shadow-md;
+        }
+        .btn-secondary {
+          @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-500 shadow hover:shadow-md;
+        }
+        .btn-success {
+          @apply bg-success text-white hover:bg-green-600 focus:ring-green-500 shadow hover:shadow-md;
+        }
+        .btn-warning {
+          @apply bg-warning text-white hover:bg-amber-600 focus:ring-amber-500 shadow hover:shadow-md;
+        }
+        .slider {
+          @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer transition-all duration-200;
+        }
+        .slider::-webkit-slider-thumb {
+          @apply appearance-none w-5 h-5 rounded-full bg-primary shadow-md transition-all duration-200 hover:scale-125;
+        }
+        .card {
+          @apply bg-white rounded-xl shadow-card transition-all duration-300 hover:shadow-card-hover;
+        }
+        .input-field {
+          @apply w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+      <header class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+          矩阵乘法动画版可视化
+        </h1>
+        <p class="text-gray-600">直观展示矩阵乘法 C = A × B 的计算过程</p>
+      </header>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- 矩阵展示区域 -->
+        <div class="flex-1 card p-6">
+          <div
+            class="flex flex-col md:flex-row items-center justify-center gap-8"
+          >
+            <!-- 矩阵 A -->
+            <div class="text-center">
+              <h3 class="text-xl font-semibold text-gray-700 mb-3">矩阵 A</h3>
+              <div id="matrixA" class="grid gap-0.5"></div>
+            </div>
+
+            <!-- 乘号和等号 -->
+            <div class="flex flex-col items-center gap-4">
+              <span class="text-2xl font-bold text-gray-700">×</span>
+              <span class="text-2xl font-bold text-gray-700">=</span>
+            </div>
+
+            <!-- 矩阵 B -->
+            <div class="text-center">
+              <h3 class="text-xl font-semibold text-gray-700 mb-3">矩阵 B</h3>
+              <div id="matrixB" class="grid gap-0.5"></div>
+            </div>
+
+            <!-- 矩阵 C (结果) -->
+            <div class="text-center">
+              <h3 class="text-xl font-semibold text-gray-700 mb-3">矩阵 C</h3>
+              <div id="matrixC" class="grid gap-0.5"></div>
+            </div>
+          </div>
+
+          <!-- 计算过程说明 -->
+          <div class="mt-8 p-4 bg-neutral rounded-lg shadow-inner">
+            <h4 class="font-medium text-gray-700 mb-2">当前计算:</h4>
+            <p id="calculationDescription" class="text-gray-600 font-medium">
+              准备开始
+            </p>
+          </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="lg:w-80 card p-6">
+          <h3 class="text-xl font-semibold text-gray-700 mb-4">控制面板</h3>
+
+          <!-- 播放控制 -->
+          <div class="mb-6">
+            <h4 class="font-medium text-gray-700 mb-3">播放控制</h4>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="playBtn" class="btn btn-primary">
+                <i class="fa fa-play mr-2"></i>播放
+              </button>
+              <button id="pauseBtn" class="btn btn-secondary" disabled>
+                <i class="fa fa-pause mr-2"></i>暂停
+              </button>
+              <button id="stepBackBtn" class="btn btn-secondary">
+                <i class="fa fa-step-backward mr-2"></i>后退
+              </button>
+              <button id="stepForwardBtn" class="btn btn-secondary">
+                <i class="fa fa-step-forward mr-2"></i>前进
+              </button>
+            </div>
+          </div>
+
+          <!-- 矩阵操作 -->
+          <div class="mb-6">
+            <h4 class="font-medium text-gray-700 mb-3">矩阵操作</h4>
+            <div class="flex gap-2">
+              <button id="randomMatrixBtn" class="btn btn-secondary flex-1">
+                <i class="fa fa-random mr-2"></i>随机矩阵
+              </button>
+              <button id="resetBtn" class="btn btn-secondary flex-1">
+                <i class="fa fa-refresh mr-2"></i>重置
+              </button>
+            </div>
+          </div>
+
+          <!-- 矩阵大小设置 -->
+          <div class="mb-6">
+            <h4 class="font-medium text-gray-700 mb-3">矩阵大小</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">A 行数</label>
+                <select
+                  id="matrixARows"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1"
+                  >A 列数/B 行数</label
+                >
+                <select
+                  id="matrixACols"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">B 列数</label>
+                <select
+                  id="matrixBCols"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
+            <button id="applySizeBtn" class="btn btn-primary w-full mt-3">
+              应用大小
+            </button>
+          </div>
+
+          <!-- 速度控制 -->
+          <div class="mb-6">
+            <h4 class="font-medium text-gray-700 mb-3">速度控制</h4>
+            <div class="flex items-center gap-4">
+              <i class="fa fa-clock-o text-gray-500"></i>
+              <input
+                type="range"
+                id="speedSlider"
+                min="1"
+                max="10"
+                value="5"
+                class="slider flex-1"
+              />
+              <span id="speedValue" class="text-gray-700 font-medium">5</span>
+            </div>
+          </div>
+
+          <!-- 手动输入矩阵 (可折叠) -->
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-medium text-gray-700">手动输入矩阵</h4>
+              <button
+                id="toggleInputBtn"
+                class="text-primary hover:text-accent"
+              >
+                <i class="fa fa-chevron-down"></i>
+              </button>
+            </div>
+            <div id="matrixInputContainer" class="hidden">
+              <!-- 矩阵 A 输入 -->
+              <div class="mb-4">
+                <h5 class="text-sm font-medium text-gray-600 mb-2">矩阵 A</h5>
+                <div id="matrixAInput" class="grid gap-1"></div>
+              </div>
+              <!-- 矩阵 B 输入 -->
+              <div class="mb-4">
+                <h5 class="text-sm font-medium text-gray-600 mb-2">矩阵 B</h5>
+                <div id="matrixBInput" class="grid gap-1"></div>
+              </div>
+              <button id="applyMatrixBtn" class="btn btn-primary w-full">
+                应用矩阵
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 页脚 -->
+      <footer class="mt-12 text-center text-gray-500 text-sm">
+        <p>矩阵乘法可视化</p>
+      </footer>
+    </div>
+
+    <script>
+      /**
+       * 矩阵乘法可视化器类
+       * 负责处理矩阵乘法的计算、动画展示和用户交互
+       */
+      class MatrixMultiplicationVisualizer {
+        constructor() {
+          // 矩阵数据
+          this.matrixA = [];
+          this.matrixB = [];
+          this.matrixC = [];
+
+          // 矩阵尺寸
+          this.matrixARows = 2;
+          this.matrixACols = 2;
+          this.matrixBCols = 2;
+
+          // 动画状态
+          this.isPlaying = false;
+          this.currentStep = 0;
+          this.totalSteps = 0;
+          this.animationSpeed = 5; // 1-10
+          this.animationInterval = null;
+
+          // 计算状态
+          this.currentRow = 0;
+          this.currentCol = 0;
+          this.currentDotProductIndex = 0;
+          this.currentDotProductSum = 0;
+
+          // 历史记录 - 用于后退功能
+          this.history = [];
+
+          // 初始化
+          this.initializeEventListeners();
+          this.generateRandomMatrices(
+            [
+              [1, 2],
+              [3, 4],
+            ],
+            [
+              [5, 6],
+              [7, 8],
+            ]
+          );
+          this.initializeMatrixDisplays();
+          this.calculateTotalSteps();
+        }
+
+        /**
+         * 初始化事件监听器
+         */
+        initializeEventListeners() {
+          // 播放控制按钮
+          document
+            .getElementById("playBtn")
+            .addEventListener("click", () => this.play());
+          document
+            .getElementById("pauseBtn")
+            .addEventListener("click", () => this.pause());
+          document
+            .getElementById("stepForwardBtn")
+            .addEventListener("click", () => this.stepForward());
+          document
+            .getElementById("stepBackBtn")
+            .addEventListener("click", () => this.stepBack());
+
+          // 矩阵操作按钮
+          document
+            .getElementById("randomMatrixBtn")
+            .addEventListener("click", () => this.generateRandomMatrices());
+          document
+            .getElementById("resetBtn")
+            .addEventListener("click", () => this.reset());
+
+          // 矩阵大小设置
+          document
+            .getElementById("applySizeBtn")
+            .addEventListener("click", () => this.applyMatrixSize());
+
+          // 速度控制
+          const speedSlider = document.getElementById("speedSlider");
+          const speedValue = document.getElementById("speedValue");
+          speedSlider.addEventListener("input", (e) => {
+            this.animationSpeed = parseInt(e.target.value);
+            speedValue.textContent = this.animationSpeed;
+
+            // 如果正在播放，更新动画间隔
+            if (this.isPlaying) {
+              this.pause();
+              this.play();
+            }
+          });
+
+          // 手动输入矩阵
+          document
+            .getElementById("toggleInputBtn")
+            .addEventListener("click", () => this.toggleMatrixInput());
+          document
+            .getElementById("applyMatrixBtn")
+            .addEventListener("click", () => this.applyManualMatrix());
+        }
+
+        /**
+         * 生成随机矩阵
+         */
+        generateRandomMatrices(matrixA = [], matrixB = []) {
+          // 生成矩阵 A
+          this.matrixA = matrixA;
+
+          if (!this.matrixA.length) {
+            for (let i = 0; i < this.matrixARows; i++) {
+              const row = [];
+              for (let j = 0; j < this.matrixACols; j++) {
+                row.push(Math.floor(Math.random() * 10)); // 0-9 的随机整数
+              }
+              this.matrixA.push(row);
+            }
+          }
+
+          // 生成矩阵 B
+          this.matrixB = matrixB;
+          if (matrixB.length === 0) {
+            for (let i = 0; i < this.matrixACols; i++) {
+              const row = [];
+              for (let j = 0; j < this.matrixBCols; j++) {
+                row.push(Math.floor(Math.random() * 10)); // 0-9 的随机整数
+              }
+              this.matrixB.push(row);
+            }
+          }
+          // 初始化结果矩阵 C
+          this.initializeResultMatrix();
+
+          // 更新显示
+          this.updateMatrixDisplays();
+          this.updateMatrixInputs();
+
+          // 重置动画状态
+          this.resetAnimationState();
+        }
+
+        /**
+         * 初始化结果矩阵
+         */
+        initializeResultMatrix() {
+          this.matrixC = [];
+          for (let i = 0; i < this.matrixARows; i++) {
+            const row = [];
+            for (let j = 0; j < this.matrixBCols; j++) {
+              row.push(0);
+            }
+            this.matrixC.push(row);
+          }
+        }
+
+        /**
+         * 初始化矩阵显示
+         */
+        initializeMatrixDisplays() {
+          this.updateMatrixDisplays();
+          this.updateMatrixInputs();
+        }
+
+        /**
+         * 更新矩阵显示
+         */
+        updateMatrixDisplays() {
+          this.renderMatrix("matrixA", this.matrixA);
+          this.renderMatrix("matrixB", this.matrixB);
+          this.renderMatrix("matrixC", this.matrixC);
+        }
+
+        /**
+         * 渲染矩阵到指定容器
+         * @param {string} containerId - 容器元素ID
+         * @param {Array<Array<number>>} matrix - 要渲染的矩阵
+         */
+        renderMatrix(containerId, matrix) {
+          const container = document.getElementById(containerId);
+
+          // 清空容器
+          container.innerHTML = "";
+
+          // 设置网格列数
+          if (matrix.length > 0) {
+            container.style.gridTemplateColumns = `repeat(${matrix[0].length}, 1fr)`;
+          }
+
+          // 创建矩阵单元格
+          for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+              const cell = document.createElement("div");
+              cell.className = "matrix-cell";
+              cell.textContent = matrix[i][j];
+              cell.dataset.row = i;
+              cell.dataset.col = j;
+              container.appendChild(cell);
+            }
+          }
+        }
+
+        /**
+         * 更新矩阵输入表单
+         */
+        updateMatrixInputs() {
+          this.renderMatrixInput("matrixAInput", this.matrixA);
+          this.renderMatrixInput("matrixBInput", this.matrixB);
+        }
+
+        /**
+         * 渲染矩阵输入表单
+         * @param {string} containerId - 容器元素ID
+         * @param {Array<Array<number>>} matrix - 要渲染的矩阵
+         */
+        renderMatrixInput(containerId, matrix) {
+          const container = document.getElementById(containerId);
+
+          // 清空容器
+          container.innerHTML = "";
+
+          // 设置网格列数
+          if (matrix.length > 0) {
+            container.style.gridTemplateColumns = `repeat(${matrix[0].length}, 1fr)`;
+          }
+
+          // 创建输入框
+          for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+              const input = document.createElement("input");
+              input.type = "number";
+              input.className = "input-field text-center";
+              input.value = matrix[i][j];
+              input.min = "0";
+              input.max = "99";
+              input.dataset.row = i;
+              input.dataset.col = j;
+              container.appendChild(input);
+            }
+          }
+        }
+
+        /**
+         * 应用矩阵大小设置
+         */
+        applyMatrixSize() {
+          // 获取新的矩阵尺寸
+          this.matrixARows = parseInt(
+            document.getElementById("matrixARows").value
+          );
+          this.matrixACols = parseInt(
+            document.getElementById("matrixACols").value
+          );
+          this.matrixBCols = parseInt(
+            document.getElementById("matrixBCols").value
+          );
+
+          // 生成新的随机矩阵
+          this.generateRandomMatrices();
+
+          // 重置动画状态
+          this.resetAnimationState();
+        }
+
+        /**
+         * 应用手动输入的矩阵
+         */
+        applyManualMatrix() {
+          // 读取矩阵 A 输入
+          this.matrixA = [];
+          const matrixAInputs = document.querySelectorAll(
+            "#matrixAInput input"
+          );
+          for (let i = 0; i < this.matrixARows; i++) {
+            const row = [];
+            for (let j = 0; j < this.matrixACols; j++) {
+              const index = i * this.matrixACols + j;
+              let value = parseInt(matrixAInputs[index].value);
+              if (isNaN(value) || value < 0) value = 0;
+              if (value > 99) value = 99;
+              row.push(value);
+            }
+            this.matrixA.push(row);
+          }
+
+          // 读取矩阵 B 输入
+          this.matrixB = [];
+          const matrixBInputs = document.querySelectorAll(
+            "#matrixBInput input"
+          );
+          for (let i = 0; i < this.matrixACols; i++) {
+            const row = [];
+            for (let j = 0; j < this.matrixBCols; j++) {
+              const index = i * this.matrixBCols + j;
+              let value = parseInt(matrixBInputs[index].value);
+              if (isNaN(value) || value < 0) value = 0;
+              if (value > 99) value = 99;
+              row.push(value);
+            }
+            this.matrixB.push(row);
+          }
+
+          // 初始化结果矩阵
+          this.initializeResultMatrix();
+
+          // 更新显示
+          this.updateMatrixDisplays();
+
+          // 重置动画状态
+          this.resetAnimationState();
+        }
+
+        /**
+         * 切换矩阵输入表单的显示/隐藏
+         */
+        toggleMatrixInput() {
+          const container = document.getElementById("matrixInputContainer");
+          const button = document.getElementById("toggleInputBtn");
+
+          if (container.classList.contains("hidden")) {
+            container.classList.remove("hidden");
+            button.innerHTML = '<i class="fa fa-chevron-up"></i>';
+          } else {
+            container.classList.add("hidden");
+            button.innerHTML = '<i class="fa fa-chevron-down"></i>';
+          }
+        }
+
+        /**
+         * 播放动画
+         */
+        play() {
+          if (this.isPlaying) return;
+
+          this.isPlaying = true;
+          document.getElementById("playBtn").disabled = true;
+          document.getElementById("pauseBtn").disabled = false;
+
+          // 计算动画间隔 (速度越快，间隔越短)
+          const interval = 1200 - this.animationSpeed * 100;
+
+          // 开始动画
+          this.animationInterval = setInterval(() => {
+            if (!this.nextStep()) {
+              this.pause();
+            }
+          }, interval);
+        }
+
+        /**
+         * 暂停动画
+         */
+        pause() {
+          this.isPlaying = false;
+          document.getElementById("playBtn").disabled = false;
+          document.getElementById("pauseBtn").disabled = true;
+
+          if (this.animationInterval) {
+            clearInterval(this.animationInterval);
+            this.animationInterval = null;
+          }
+        }
+
+        /**
+         * 执行前进一步动画
+         */
+        stepForward() {
+          // 如果正在播放，先暂停
+          if (this.isPlaying) {
+            this.pause();
+          }
+
+          // 执行一步
+          this.nextStep();
+        }
+
+        /**
+         * 执行后退一步动画
+         */
+        stepBack() {
+          // 如果正在播放，先暂停
+          if (this.isPlaying) {
+            this.pause();
+          }
+
+          // 检查是否可以后退
+          if (this.currentStep <= 0) {
+            return;
+          }
+
+          // 后退一步
+          this.currentStep--;
+
+          // 从历史记录恢复状态
+          this.restoreStateFromHistory();
+
+          // 更新显示
+          this.updateMatrixDisplays();
+          this.updateCalculationDescription();
+        }
+
+        /**
+         * 保存当前状态到历史记录
+         */
+        saveStateToHistory() {
+          // 检查是否已经保存了当前步骤的状态
+          if (
+            this.history.length > 0 &&
+            this.history[this.history.length - 1].currentStep ===
+              this.currentStep
+          ) {
+            // 如果已经保存了当前步骤的状态，则更新它
+            this.history[this.history.length - 1] = {
+              currentStep: this.currentStep,
+              currentRow: this.currentRow,
+              currentCol: this.currentCol,
+              currentDotProductIndex: this.currentDotProductIndex,
+              currentDotProductSum: this.currentDotProductSum,
+              matrixC: JSON.parse(JSON.stringify(this.matrixC)),
+            };
+          } else {
+            // 否则添加新的状态
+            this.history.push({
+              currentStep: this.currentStep,
+              currentRow: this.currentRow,
+              currentCol: this.currentCol,
+              currentDotProductIndex: this.currentDotProductIndex,
+              currentDotProductSum: this.currentDotProductSum,
+              matrixC: JSON.parse(JSON.stringify(this.matrixC)),
+            });
+          }
+        }
+
+        /**
+         * 从历史记录恢复状态
+         */
+        restoreStateFromHistory() {
+          // 检查历史记录是否有效
+          if (this.currentStep < 0 || this.currentStep >= this.history.length) {
+            return;
+          }
+
+          // 恢复状态
+          const state = this.history[this.currentStep];
+          this.currentRow = state.currentRow;
+          this.currentCol = state.currentCol;
+          this.currentDotProductIndex = state.currentDotProductIndex;
+          this.currentDotProductSum = state.currentDotProductSum;
+          this.matrixC = JSON.parse(JSON.stringify(state.matrixC));
+
+          // 清除高亮
+          this.clearHighlights();
+
+          // 如果不是初始状态，显示当前计算的高亮
+          if (this.currentStep > 0) {
+            // 计算当前步骤对应的行列和点积索引
+            const stepsPerResult = this.matrixACols + 1;
+            const resultIndex = Math.floor(this.currentStep / stepsPerResult);
+            const stepInResult = this.currentStep % stepsPerResult;
+
+            // 如果是点积计算步骤，高亮当前计算的元素
+            if (stepInResult < this.matrixACols) {
+              this.highlightCurrentCalculation();
+            }
+            // 如果是显示结果步骤，高亮结果元素
+            else {
+              this.highlightResult();
+            }
+          }
+        }
+
+        /**
+         * 重置动画状态
+         */
+        reset() {
+          // 暂停动画
+          this.pause();
+
+          // 重置结果矩阵
+          this.initializeResultMatrix();
+
+          // 重置动画状态
+          this.resetAnimationState();
+
+          // 更新显示
+          this.updateMatrixDisplays();
+          this.updateCalculationDescription();
+        }
+
+        /**
+         * 重置动画状态变量
+         */
+        resetAnimationState() {
+          this.currentStep = 0;
+          this.currentRow = 0;
+          this.currentCol = 0;
+          this.currentDotProductIndex = 0;
+          this.currentDotProductSum = 0;
+          this.calculateTotalSteps();
+          this.clearHighlights();
+          this.updateCalculationDescription();
+
+          // 清空历史记录
+          this.history = [];
+
+          // 保存初始状态（第0步）
+          this.saveStateToHistory();
+        }
+
+        /**
+         * 计算总步数
+         */
+        calculateTotalSteps() {
+          // 每个结果元素需要 (matrixACols + 1) 步:
+          // matrixACols 步用于点积计算，1 步用于显示最终结果
+          this.totalSteps =
+            this.matrixARows * this.matrixBCols * (this.matrixACols + 1);
+        }
+
+        /**
+         * 执行下一步动画
+         * @returns {boolean} 是否还有下一步
+         */
+        nextStep() {
+          // 检查是否已完成所有步骤
+          if (this.currentStep >= this.totalSteps) {
+            this.clearHighlights();
+            this.updateCalculationDescription("计算完成!");
+            return false;
+          }
+
+          // 清除之前的高亮
+          this.clearHighlights();
+
+          // 计算当前步骤对应的行列和点积索引
+          const stepsPerResult = this.matrixACols + 1;
+          const resultIndex = Math.floor(this.currentStep / stepsPerResult);
+          this.currentRow = Math.floor(resultIndex / this.matrixBCols);
+          this.currentCol = resultIndex % this.matrixBCols;
+          const stepInResult = this.currentStep % stepsPerResult;
+
+          // 如果是点积计算步骤
+          if (stepInResult < this.matrixACols) {
+            this.currentDotProductIndex = stepInResult;
+            this.currentDotProductSum +=
+              this.matrixA[this.currentRow][this.currentDotProductIndex] *
+              this.matrixB[this.currentDotProductIndex][this.currentCol];
+
+            // 高亮当前计算的元素
+            this.highlightCurrentCalculation();
+
+            // 更新计算描述
+            this.updateCalculationDescription();
+          }
+          // 如果是显示结果步骤
+          else {
+            // 保存结果
+            this.matrixC[this.currentRow][this.currentCol] =
+              this.currentDotProductSum;
+
+            // 高亮结果元素
+            this.highlightResult();
+
+            // 更新显示
+            this.updateMatrixDisplays();
+
+            // 更新计算描述
+            this.updateCalculationDescription(true);
+
+            // 重置点积和
+            this.currentDotProductSum = 0;
+          }
+
+          // 保存当前状态到历史记录（保存当前步骤的状态）
+          this.saveStateToHistory();
+
+          // 前进到下一步
+          this.currentStep++;
+
+          return true;
+        }
+
+        /**
+         * 高亮当前计算的元素
+         */
+        highlightCurrentCalculation() {
+          // 高亮矩阵 A 的当前元素
+          const matrixACells = document.querySelectorAll(
+            "#matrixA .matrix-cell"
+          );
+          const aIndex =
+            this.currentRow * this.matrixACols + this.currentDotProductIndex;
+          if (matrixACells[aIndex]) {
+            matrixACells[aIndex].classList.add("matrix-cell-active");
+          }
+
+          // 高亮矩阵 B 的当前元素
+          const matrixBCells = document.querySelectorAll(
+            "#matrixB .matrix-cell"
+          );
+          const bIndex =
+            this.currentDotProductIndex * this.matrixBCols + this.currentCol;
+          if (matrixBCells[bIndex]) {
+            matrixBCells[bIndex].classList.add("matrix-cell-active");
+          }
+
+          // 高亮矩阵 A 的当前行
+          for (let j = 0; j < this.matrixACols; j++) {
+            const index = this.currentRow * this.matrixACols + j;
+            if (matrixACells[index] && j !== this.currentDotProductIndex) {
+              matrixACells[index].classList.add("matrix-cell-highlighted");
+            }
+          }
+
+          // 高亮矩阵 B 的当前列
+          for (let i = 0; i < this.matrixACols; i++) {
+            const index = i * this.matrixBCols + this.currentCol;
+            if (matrixBCells[index] && i !== this.currentDotProductIndex) {
+              matrixBCells[index].classList.add("matrix-cell-highlighted");
+            }
+          }
+
+          // 高亮结果矩阵的当前元素
+          const matrixCCells = document.querySelectorAll(
+            "#matrixC .matrix-cell"
+          );
+          const cIndex = this.currentRow * this.matrixBCols + this.currentCol;
+          if (matrixCCells[cIndex]) {
+            matrixCCells[cIndex].classList.add("matrix-cell-highlighted");
+          }
+        }
+
+        /**
+         * 高亮结果元素
+         */
+        highlightResult() {
+          // 高亮结果矩阵的当前元素
+          const matrixCCells = document.querySelectorAll(
+            "#matrixC .matrix-cell"
+          );
+          const cIndex = this.currentRow * this.matrixBCols + this.currentCol;
+          if (matrixCCells[cIndex]) {
+            matrixCCells[cIndex].classList.add("matrix-cell-result");
+          }
+        }
+
+        /**
+         * 清除所有高亮
+         */
+        clearHighlights() {
+          const cells = document.querySelectorAll(".matrix-cell");
+          cells.forEach((cell) => {
+            cell.classList.remove(
+              "matrix-cell-highlighted",
+              "matrix-cell-active",
+              "matrix-cell-result"
+            );
+          });
+        }
+
+        /**
+         * 更新计算描述
+         * @param {boolean} isResultStep - 是否是结果步骤
+         */
+        updateCalculationDescription(isResultStep = false) {
+          const descriptionElement = document.getElementById(
+            "calculationDescription"
+          );
+
+          // 如果是初始状态
+          if (this.currentStep === 0) {
+            descriptionElement.textContent = "准备开始";
+            return;
+          }
+
+          // 如果是结果步骤
+          if (isResultStep) {
+            descriptionElement.textContent = `C[${this.currentRow + 1}][${
+              this.currentCol + 1
+            }] = ${this.matrixC[this.currentRow][this.currentCol]}`;
+          }
+          // 如果是点积计算步骤
+          else {
+            const aValue =
+              this.matrixA[this.currentRow][this.currentDotProductIndex];
+            const bValue =
+              this.matrixB[this.currentDotProductIndex][this.currentCol];
+            const product = aValue * bValue;
+
+            descriptionElement.textContent =
+              `计算 C[${this.currentRow + 1}][${
+                this.currentCol + 1
+              }] 的点积: ` +
+              `A[${this.currentRow + 1}][${
+                this.currentDotProductIndex + 1
+              }] × B[${this.currentDotProductIndex + 1}][${
+                this.currentCol + 1
+              }] = ` +
+              `${aValue} × ${bValue} = ${product} (累计: ${this.currentDotProductSum})`;
+          }
+        }
+      }
+
+      // 页面加载完成后初始化应用
+      document.addEventListener("DOMContentLoaded", () => {
+        const visualizer = new MatrixMultiplicationVisualizer();
+      });
+    </script>
+  </body>
+</html>

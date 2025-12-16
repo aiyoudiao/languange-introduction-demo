@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>矩阵乘法可视化</title>
+    <style>
+      :root {
+        --bg: #071129;
+        --card: #071828;
+        --muted: #9fb0c7;
+        --accent: #7c3aed;
+        --accent2: #06b6d4;
+        --text: #e9f2fb;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial;
+        color: var(--text);
+        background: linear-gradient(180deg, var(--bg), #021223);
+      }
+      .app {
+        max-width: 1100px;
+        margin: 20px auto;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      button {
+        background: var(--accent);
+        color: white;
+        border: 0;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button.ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+      }
+      .panel {
+        display: flex;
+        gap: 12px;
+        background: var(--card);
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+      .canvas-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+      }
+      canvas {
+        border-radius: 8px;
+        background: linear-gradient(180deg, #05202f, #041826);
+        display: block;
+      }
+      .sidebar {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      label {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: block;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: transparent;
+        color: var(--text);
+      }
+      input[type="range"] {
+        width: 120px;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      pre {
+        background: transparent;
+        color: var(--muted);
+        margin: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="top">
+        <div class="title">
+          <div>🧮 矩阵乘法可视化（清爽修复版）</div>
+          <div class="muted" style="font-weight: 400; font-size: 13px">
+            演示 C = A × B ，逐项点积（row · col）计算过程
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="playBtn">▶ Play</button>
+          <button id="stepBtn" class="ghost">Step</button>
+          <button id="resetBtn" class="ghost">Reset</button>
+          <button id="randBtn" class="ghost">Random</button>
+          <label class="muted" style="margin-left: 8px">Speed</label>
+          <input
+            id="speedRange"
+            type="range"
+            min="0.2"
+            max="3"
+            step="0.1"
+            value="1"
+          />
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="canvas-wrap">
+          <canvas
+            id="cv"
+            width="760"
+            height="480"
+            style="max-width: 100%; height: auto"
+          ></canvas>
+        </div>
+
+        <div class="sidebar">
+          <div>
+            <label>Matrix A (2×2)</label>
+            <div class="grid">
+              <input id="a11" type="number" value="1" />
+              <input id="a12" type="number" value="2" />
+              <input id="a21" type="number" value="3" />
+              <input id="a22" type="number" value="4" />
+            </div>
+          </div>
+
+          <div>
+            <label>Matrix B (2×2)</label>
+            <div class="grid">
+              <input id="b11" type="number" value="5" />
+              <input id="b12" type="number" value="6" />
+              <input id="b21" type="number" value="7" />
+              <input id="b22" type="number" value="8" />
+            </div>
+          </div>
+
+          <div>
+            <label>Current Matrices</label>
+            <pre id="matshow">A = [[1,2],[3,4]]\nB = [[5,6],[7,8]]</pre>
+          </div>
+
+          <div class="footer">
+            <div class="muted">Front-end friendly · MatrixViz</div>
+            <div class="muted">©</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* ====== 清爽修正版 Matrix Visualizer ======
+   修复点：
+   - 支持 devicePixelRatio，避免 canvas 模糊
+   - 强制 Number() 转换输入，避免字符串导致 NaN
+   - 更稳健的 play/pause/step 逻辑
+   - 简化样式与渲染逻辑，易读易扩展
+*/
+
+      // ---------- helpers ----------
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      function makeMat(a11, a12, a21, a22) {
+        return [
+          [Number(a11), Number(a12)],
+          [Number(a21), Number(a22)],
+        ];
+      }
+      function roundRect(ctx, x, y, w, h, r = 6, fill = true, stroke = false) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+        if (fill) ctx.fill();
+        if (stroke) ctx.stroke();
+      }
+
+      // ---------- Visualizer ----------
+      class MatrixVisualizer {
+        constructor(canvas) {
+          this.cv = canvas;
+          this.ctx = canvas.getContext("2d");
+          this.dpr = Math.max(1, window.devicePixelRatio || 1);
+          this._resizeCanvas();
+
+          // matrices
+          this.A = [
+            [1, 2],
+            [3, 4],
+          ];
+          this.B = [
+            [5, 6],
+            [7, 8],
+          ];
+          this.C = [
+            [0, 0],
+            [0, 0],
+          ];
+
+          // animation state
+          this.playing = false;
+          this.speed = 1;
+          this.curI = 0;
+          this.curJ = 0;
+          this.kIndex = 0;
+          this.partialSum = 0;
+          this.animReq = null;
+          this.lastTime = null;
+
+          // layout
+          this.cell = 64;
+          this.gap = 12;
+          this.font = "600 16px system-ui, -apple-system, Segoe UI, Roboto";
+
+          // bind
+          this._loop = this._loop.bind(this);
+          window.addEventListener("resize", () => {
+            this._resizeCanvas();
+            this.render();
+          });
+
+          this.reset();
+          this.render();
+        }
+
+        _resizeCanvas() {
+          const cssW = this.cv.clientWidth || 760;
+          const cssH = this.cv.clientHeight || 480;
+          this.dpr = Math.max(1, window.devicePixelRatio || 1);
+          this.cv.width = Math.round(cssW * this.dpr);
+          this.cv.height = Math.round(cssH * this.dpr);
+          this.cv.style.width = cssW + "px";
+          this.cv.style.height = cssH + "px";
+          this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+          this.width = cssW;
+          this.height = cssH;
+        }
+
+        setMatrices(A, B) {
+          if (!A || !B) return;
+          this.A = A.map((r) => r.slice());
+          this.B = B.map((r) => r.slice());
+          this.reset();
+          this.render();
+        }
+
+        reset() {
+          this.C = [
+            [0, 0],
+            [0, 0],
+          ];
+          this.curI = 0;
+          this.curJ = 0;
+          this.kIndex = 0;
+          this.partialSum = 0;
+          this.pause(); // reset should stop animation
+        }
+
+        setSpeed(v) {
+          this.speed = Number(v) || 1;
+        }
+
+        play() {
+          if (this.playing) return;
+          // if already finished, reset to allow replay
+          if (this.curI >= 2) {
+            this.reset();
+          }
+          this.playing = true;
+          this.lastTime = performance.now();
+          this.animReq = requestAnimationFrame(this._loop);
+        }
+
+        pause() {
+          this.playing = false;
+          if (this.animReq) {
+            cancelAnimationFrame(this.animReq);
+            this.animReq = null;
+          }
+        }
+
+        toggle() {
+          this.playing ? this.pause() : this.play();
+        }
+
+        step() {
+          // single k-step: advance one multiplication-add operation
+          if (this.curI >= 2) return; // finished
+          this._advanceOneK();
+          this.render();
+        }
+
+        _advanceOneK() {
+          const i = this.curI,
+            j = this.curJ,
+            k = this.kIndex;
+          // safety checks
+          if (i >= 2 || j >= 2) return;
+          const a = Number(this.A[i][k]) || 0;
+          const b = Number(this.B[k][j]) || 0;
+          const mul = a * b;
+          this.partialSum += mul;
+
+          this.kIndex++;
+          if (this.kIndex >= 2) {
+            this.C[i][j] = this.partialSum;
+            this.partialSum = 0;
+            this.kIndex = 0;
+            this.curJ++;
+            if (this.curJ >= 2) {
+              this.curJ = 0;
+              this.curI++;
+              if (this.curI >= 2) {
+                // finished
+                this.pause();
+              }
+            }
+          }
+        }
+
+        _loop(now) {
+          if (!this.playing) return;
+          const dt = now - (this.lastTime || now);
+          this.lastTime = now;
+          // determine steps per frame based on speed and dt
+          const baseMsPerK = 120; // baseline ms per k-step at speed=1
+          const stepsToDo = Math.max(
+            1,
+            Math.round((this.speed * dt) / baseMsPerK)
+          );
+          for (let s = 0; s < stepsToDo; s++) {
+            if (this.curI >= 2) {
+              this.pause();
+              break;
+            }
+            this._advanceOneK();
+          }
+          this.render();
+          if (this.playing) this.animReq = requestAnimationFrame(this._loop);
+        }
+
+        clear() {
+          this.ctx.clearRect(0, 0, this.width, this.height);
+          const g = this.ctx.createLinearGradient(0, 0, 0, this.height);
+          g.addColorStop(0, "rgba(5,32,43,0.12)");
+          g.addColorStop(1, "rgba(2,12,18,0.12)");
+          this.ctx.fillStyle = g;
+          this.ctx.fillRect(0, 0, this.width, this.height);
+        }
+
+        render() {
+          const ctx = this.ctx;
+          this.clear();
+          ctx.font = this.font;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+
+          const top = 30;
+          const leftX = 30;
+          const midX = this.width / 2 - 30;
+          const rightX = this.width - 220;
+
+          // draw matrices
+          this._drawMatrix(leftX, top, this.A, {
+            title: "A",
+            highlightRow: this.curI < 2 ? this.curI : -1,
+          });
+          this._drawMatrix(midX, top, this.B, {
+            title: "B",
+            highlightCol: this.curJ < 2 ? this.curJ : -1,
+          });
+          this._drawMatrix(rightX, top, this.C, {
+            title: "C",
+            showEmpty: true,
+          });
+
+          // computation panel
+          this._drawComputationPanel(30, 210);
+        }
+
+        _drawMatrix(x, y, mat, opts = {}) {
+          const ctx = this.ctx;
+          const rows = mat.length;
+          const cols = mat[0].length;
+          const cell = this.cell;
+          const gap = 8;
+          // title
+          ctx.fillStyle = "rgba(255,255,255,0.9)";
+          ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto";
+          ctx.fillText(
+            opts.title || "",
+            x + (cols * (cell + gap) - gap) / 2,
+            y + 12
+          );
+
+          const startY = y + 28;
+          for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+              const cx = x + j * (cell + gap);
+              const cy = startY + i * (cell + gap);
+              // background
+              ctx.fillStyle = "rgba(255,255,255,0.02)";
+              roundRect(ctx, cx, cy, cell, cell, 8, true, false);
+
+              // highlights
+              if (
+                typeof opts.highlightRow === "number" &&
+                opts.highlightRow === i
+              ) {
+                ctx.fillStyle = "rgba(124,58,237,0.12)";
+                roundRect(ctx, cx, cy, cell, cell, 8, true, false);
+              }
+              if (
+                typeof opts.highlightCol === "number" &&
+                opts.highlightCol === j
+              ) {
+                ctx.fillStyle = "rgba(6,182,212,0.12)";
+                roundRect(ctx, cx, cy, cell, cell, 8, true, false);
+              }
+              // value
+              const v = mat[i][j];
+              ctx.fillStyle = "rgba(255,255,255,0.95)";
+              ctx.font = "700 18px system-ui, -apple-system, Segoe UI, Roboto";
+              const txt = v === 0 && opts.showEmpty ? "-" : String(v);
+              ctx.fillText(txt, cx + cell / 2, cy + cell / 2);
+            }
+          }
+        }
+
+        _drawComputationPanel(x, y) {
+          const ctx = this.ctx;
+          ctx.save();
+          // panel box
+          ctx.fillStyle = "rgba(255,255,255,0.03)";
+          roundRect(ctx, x, y, this.width - 80, 220, 10, true, false);
+
+          ctx.fillStyle = "rgba(255,255,255,0.95)";
+          ctx.font = "700 16px system-ui, -apple-system, Segoe UI, Roboto";
+          if (this.curI >= 2) {
+            ctx.fillText("All done — C computed", x + 180, y + 36);
+            ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto";
+            ctx.fillText(
+              `[ ${this.C[0][0]}  ${this.C[0][1]} ]`,
+              x + 180,
+              y + 80
+            );
+            ctx.fillText(
+              `[ ${this.C[1][0]}  ${this.C[1][1]} ]`,
+              x + 180,
+              y + 110
+            );
+            ctx.restore();
+            return;
+          }
+
+          const i = this.curI,
+            j = this.curJ,
+            k = this.kIndex;
+          ctx.fillText(
+            `Computing C[${i + 1}][${j + 1}] = dot( A[${i + 1},:] , B[:,${
+              j + 1
+            }] )`,
+            x + 180,
+            y + 28
+          );
+
+          // A row values
+          ctx.font = "600 15px system-ui, -apple-system, Segoe UI, Roboto";
+          ctx.fillStyle = "rgba(124,58,237,0.95)";
+          ctx.fillText("A row →", x + 70, y + 68);
+          for (let t = 0; t < 2; t++) {
+            const vx = x + 40 + t * 70;
+            const vy = y + 92;
+            roundRect(ctx, vx - 28, vy - 16, 56, 36, 8, true, false);
+            if (t === k) {
+              ctx.fillStyle = "rgba(124,58,237,0.28)";
+              roundRect(ctx, vx - 28, vy - 16, 56, 36, 8, true, false);
+              ctx.fillStyle = "rgba(124,58,237,0.95)";
+            }
+            ctx.fillText(String(this.A[i][t]), vx, vy + 2);
+          }
+
+          // B column values
+          ctx.fillStyle = "rgba(6,182,212,0.95)";
+          ctx.fillText("B col →", x + 320, y + 68);
+          for (let t = 0; t < 2; t++) {
+            const vx = x + 300;
+            const vy = y + 80 + t * 40;
+            roundRect(ctx, vx - 18, vy - 16, 120, 36, 8, true, false);
+            if (t === k) {
+              ctx.fillStyle = "rgba(6,182,212,0.18)";
+              roundRect(ctx, vx - 18, vy - 16, 120, 36, 8, true, false);
+              ctx.fillStyle = "rgba(6,182,212,0.95)";
+            }
+            ctx.fillText(String(this.B[t][j]), vx + 40, vy + 2);
+          }
+
+          // show multiplication and partial sum
+          const aVal = this.curI < 2 ? this.A[i][k] : 0;
+          const bVal = this.curI < 2 ? this.B[k][j] : 0;
+          const mul = Number(aVal || 0) * Number(bVal || 0);
+          ctx.fillStyle = "rgba(255,255,255,0.95)";
+          ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto";
+          ctx.fillText(
+            `Step: A[${i + 1},${k + 1}] × B[${k + 1},${
+              j + 1
+            }] = ${aVal} × ${bVal} = ${mul}`,
+            x + 180,
+            y + 170
+          );
+          ctx.fillText(
+            `Partial sum for this dot: ${this.partialSum}`,
+            x + 420,
+            y + 170
+          );
+
+          ctx.restore();
+        }
+      }
+
+      // ---------- wire up ----------
+      const canvas = document.getElementById("cv");
+      const viz = new MatrixVisualizer(canvas);
+
+      function readInputsAndSet() {
+        const A = makeMat(
+          document.getElementById("a11").value,
+          document.getElementById("a12").value,
+          document.getElementById("a21").value,
+          document.getElementById("a22").value
+        );
+        const B = makeMat(
+          document.getElementById("b11").value,
+          document.getElementById("b12").value,
+          document.getElementById("b21").value,
+          document.getElementById("b22").value
+        );
+        // update display
+        document.getElementById(
+          "matshow"
+        ).textContent = `A = [[${A[0][0]}, ${A[0][1]}],[${A[1][0]}, ${A[1][1]}]]\nB = [[${B[0][0]}, ${B[0][1]}],[${B[1][0]}, ${B[1][1]}]]`;
+        viz.setMatrices(A, B);
+      }
+
+      document.querySelectorAll('input[type="number"]').forEach((el) => {
+        el.addEventListener("change", () => {
+          readInputsAndSet();
+        });
+      });
+
+      document.getElementById("playBtn").addEventListener("click", () => {
+        const btn = document.getElementById("playBtn");
+        if (viz.playing) {
+          viz.pause();
+          btn.textContent = "▶ Play";
+        } else {
+          viz.play();
+          btn.textContent = "⏸ Pause";
+        }
+      });
+
+      document.getElementById("stepBtn").addEventListener("click", () => {
+        viz.step();
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        readInputsAndSet();
+        viz.reset();
+        document.getElementById("playBtn").textContent = "▶ Play";
+      });
+
+      document.getElementById("randBtn").addEventListener("click", () => {
+        const r = () => Math.floor(Math.random() * 13) - 3;
+        document.getElementById("a11").value = r();
+        document.getElementById("a12").value = r();
+        document.getElementById("a21").value = r();
+        document.getElementById("a22").value = r();
+        document.getElementById("b11").value = r();
+        document.getElementById("b12").value = r();
+        document.getElementById("b21").value = r();
+        document.getElementById("b22").value = r();
+        readInputsAndSet();
+      });
+
+      document.getElementById("speedRange").addEventListener("input", (e) => {
+        viz.setSpeed(Number(e.target.value));
+      });
+
+      // initial sync
+      readInputsAndSet();
+    </script>
+  </body>
+</html>
