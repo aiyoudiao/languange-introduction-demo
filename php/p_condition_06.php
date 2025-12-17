@@ -45,7 +45,7 @@ $b = "hello";
 print($b ?? "b 为 null \n");
 ?>
 
-<!-- 匹配 -->
+<!-- 匹配 php 8 开始可用 https://www.php.net/manual/zh/control-structures.match.php -->
 <?php
 $code = 201;
 $message = match ($code) {
