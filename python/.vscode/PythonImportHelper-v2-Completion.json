@@ -1,0 +1,1740 @@
+[
+    {
+        "label": "flask",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "flask",
+        "description": "flask",
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Self",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Type",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "mkdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "rmdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "ceil",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "floor",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "print_hi",
+        "kind": 2,
+        "importPath": "p_ai_projects.main",
+        "description": "p_ai_projects.main",
+        "peekOfCode": "def print_hi(name):\n    # 在下面的代码行中使用断点来调试脚本。\n    print(f'Hi, {name}')  # 按 F9 切换断点。\n# 按装订区域中的绿色按钮以运行脚本。\nif __name__ == '__main__':\n    print_hi('PyCharm')\n# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助",
+        "detail": "p_ai_projects.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_hello",
+        "kind": 2,
+        "importPath": "p_venv_00.hello",
+        "description": "p_venv_00.hello",
+        "peekOfCode": "def get_hello():\n    return 'OK', 200\n# POST接口，返回201状态码\n@app.route('/', methods=['POST'])\ndef post_hello():\n    return 'Created', 201\n# 运行Flask应用\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "p_venv_00.hello",
+        "documentation": {}
+    },
+    {
+        "label": "post_hello",
+        "kind": 2,
+        "importPath": "p_venv_00.hello",
+        "description": "p_venv_00.hello",
+        "peekOfCode": "def post_hello():\n    return 'Created', 201\n# 运行Flask应用\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "p_venv_00.hello",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "p_venv_00.hello",
+        "description": "p_venv_00.hello",
+        "peekOfCode": "app = flask.Flask(__name__)\n# GET接口，返回200状态码\n@app.route('/', methods=['GET'])\ndef get_hello():\n    return 'OK', 200\n# POST接口，返回201状态码\n@app.route('/', methods=['POST'])\ndef post_hello():\n    return 'Created', 201\n# 运行Flask应用",
+        "detail": "p_venv_00.hello",
+        "documentation": {}
+    },
+    {
+        "label": "Person_1",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Person_1:\n    pass\nmy = Person_1() # 创建对象\nprint('构造函数')\nclass Animal_1:\n    def __init__(self, voice):\n        self.voice = voice\ncat = Animal_1('喵喵喵')\nprint(cat.voice)\ndog = Animal_1('汪汪汪')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_1",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_1:\n    def __init__(self, voice):\n        self.voice = voice\ncat = Animal_1('喵喵喵')\nprint(cat.voice)\ndog = Animal_1('汪汪汪')\nprint(dog.voice)\nprint('方法')\nclass Dog_1:\n    def bark(self):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Dog_1",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Dog_1:\n    def bark(self):\n        print('汪汪汪')\ndog = Dog_1()\ndog.bark()\nprint('类变量')\nclass Dog_2:\n    voice = '汪汪汪'\nprint(Dog_2.voice)\nd = Dog_2()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Dog_2",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Dog_2:\n    voice = '汪汪汪'\nprint(Dog_2.voice)\nd = Dog_2()\nprint(d.voice)\nprint('super()函数')\nclass Animal_2:\n    def print_test(self):\n        print('animal test')\nclass Cat_2(Animal_2):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_2",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_2:\n    def print_test(self):\n        print('animal test')\nclass Cat_2(Animal_2):\n    def print_test(self):\n        print('cat test')\n        super().print_test()\ncat_2 = Cat_2()\ncat_2.print_test()\nprint('__repr__()方法')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Cat_2",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Cat_2(Animal_2):\n    def print_test(self):\n        print('cat test')\n        super().print_test()\ncat_2 = Cat_2()\ncat_2.print_test()\nprint('__repr__()方法')\nclass Employee_1:\n    def __init__(self, name):\n        self.name = name",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Employee_1",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Employee_1:\n    def __init__(self, name):\n        self.name = name\n    def __repr__(self):\n        return f'Employee_1(name={self.name})'\nzs = Employee_1('zs')\nprint(zs)\nprint('用户自定义的异常')\nclass MyCustomError(Exception):\n    pass",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "MyCustomError",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class MyCustomError(Exception):\n    pass\nprint('多态性')\nclass Animal_3:\n    def print_self(self):\n        print('animal 3')\nclass Cat_3(Animal_3):\n    def print_self(self):\n        print('cat 3')\nanimal_3 = Animal_3()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_3",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_3:\n    def print_self(self):\n        print('animal 3')\nclass Cat_3(Animal_3):\n    def print_self(self):\n        print('cat 3')\nanimal_3 = Animal_3()\ncat_3 = Cat_3()\nanimal_3.print_self()\ncat_3.print_self()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Cat_3",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Cat_3(Animal_3):\n    def print_self(self):\n        print('cat 3')\nanimal_3 = Animal_3()\ncat_3 = Cat_3()\nanimal_3.print_self()\ncat_3.print_self()\nprint('重写')\nclass Animal_4:\n    def print_self(self):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_4",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_4:\n    def print_self(self):\n        print('animal 4')\nclass Cat_4(Animal_4):\n    def print_self(self):\n        print('cat 4')\n        # super().print_self()\ncat_4 = Cat_4()\ncat_4.print_self()\nprint('抽象类')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Cat_4",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Cat_4(Animal_4):\n    def print_self(self):\n        print('cat 4')\n        # super().print_self()\ncat_4 = Cat_4()\ncat_4.print_self()\nprint('抽象类')\nfrom abc import ABC, abstractmethod\nclass Animal_5(ABC):\n    @abstractmethod",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_5",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_5(ABC):\n    @abstractmethod\n    def print_self(self):\n        pass\n    @abstractmethod\n    def print_self_2(self):\n        pass\nclass Cat_5(Animal_5):\n    def print_self(self):\n        print('cat 5')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Cat_5",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Cat_5(Animal_5):\n    def print_self(self):\n        print('cat 5')\n    def print_self_2(self):\n        print('cat 5_2')\ncat_5 = Cat_5()\ncat_5.print_self()\nprint('继承')\nclass Animal_6:\n    def __init__(self, name, legs):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Animal_6",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Animal_6:\n    def __init__(self, name, legs):\n        self.name = name\n        self.legs = legs\nclass Dog_6(Animal_6):\n    def sound(self):\n        print('汪汪汪')\ndog_6 = Dog_6('旺财', 4)\nprint(dog_6.name, dog_6.legs)\ndog_6.sound()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "Dog_6",
+        "kind": 6,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "class Dog_6(Animal_6):\n    def sound(self):\n        print('汪汪汪')\ndog_6 = Dog_6('旺财', 4)\nprint(dog_6.name, dog_6.legs)\ndog_6.sound()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "my",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "my = Person_1() # 创建对象\nprint('构造函数')\nclass Animal_1:\n    def __init__(self, voice):\n        self.voice = voice\ncat = Animal_1('喵喵喵')\nprint(cat.voice)\ndog = Animal_1('汪汪汪')\nprint(dog.voice)\nprint('方法')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "cat",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "cat = Animal_1('喵喵喵')\nprint(cat.voice)\ndog = Animal_1('汪汪汪')\nprint(dog.voice)\nprint('方法')\nclass Dog_1:\n    def bark(self):\n        print('汪汪汪')\ndog = Dog_1()\ndog.bark()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "dog",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "dog = Animal_1('汪汪汪')\nprint(dog.voice)\nprint('方法')\nclass Dog_1:\n    def bark(self):\n        print('汪汪汪')\ndog = Dog_1()\ndog.bark()\nprint('类变量')\nclass Dog_2:",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "dog",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "dog = Dog_1()\ndog.bark()\nprint('类变量')\nclass Dog_2:\n    voice = '汪汪汪'\nprint(Dog_2.voice)\nd = Dog_2()\nprint(d.voice)\nprint('super()函数')\nclass Animal_2:",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "d",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "d = Dog_2()\nprint(d.voice)\nprint('super()函数')\nclass Animal_2:\n    def print_test(self):\n        print('animal test')\nclass Cat_2(Animal_2):\n    def print_test(self):\n        print('cat test')\n        super().print_test()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "cat_2",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "cat_2 = Cat_2()\ncat_2.print_test()\nprint('__repr__()方法')\nclass Employee_1:\n    def __init__(self, name):\n        self.name = name\n    def __repr__(self):\n        return f'Employee_1(name={self.name})'\nzs = Employee_1('zs')\nprint(zs)",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "zs",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "zs = Employee_1('zs')\nprint(zs)\nprint('用户自定义的异常')\nclass MyCustomError(Exception):\n    pass\nprint('多态性')\nclass Animal_3:\n    def print_self(self):\n        print('animal 3')\nclass Cat_3(Animal_3):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "animal_3",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "animal_3 = Animal_3()\ncat_3 = Cat_3()\nanimal_3.print_self()\ncat_3.print_self()\nprint('重写')\nclass Animal_4:\n    def print_self(self):\n        print('animal 4')\nclass Cat_4(Animal_4):\n    def print_self(self):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "cat_3",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "cat_3 = Cat_3()\nanimal_3.print_self()\ncat_3.print_self()\nprint('重写')\nclass Animal_4:\n    def print_self(self):\n        print('animal 4')\nclass Cat_4(Animal_4):\n    def print_self(self):\n        print('cat 4')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "cat_4",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "cat_4 = Cat_4()\ncat_4.print_self()\nprint('抽象类')\nfrom abc import ABC, abstractmethod\nclass Animal_5(ABC):\n    @abstractmethod\n    def print_self(self):\n        pass\n    @abstractmethod\n    def print_self_2(self):",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "cat_5",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "cat_5 = Cat_5()\ncat_5.print_self()\nprint('继承')\nclass Animal_6:\n    def __init__(self, name, legs):\n        self.name = name\n        self.legs = legs\nclass Dog_6(Animal_6):\n    def sound(self):\n        print('汪汪汪')",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "dog_6",
+        "kind": 5,
+        "importPath": "p_class_extend_10",
+        "description": "p_class_extend_10",
+        "peekOfCode": "dog_6 = Dog_6('旺财', 4)\nprint(dog_6.name, dog_6.legs)\ndog_6.sound()",
+        "detail": "p_class_extend_10",
+        "documentation": {}
+    },
+    {
+        "label": "number",
+        "kind": 5,
+        "importPath": "p_condition_05",
+        "description": "p_condition_05",
+        "peekOfCode": "number = 10\nif number > 0:\n    print('数字大于0')\nelse:\n    print('数字小于等于0')\nprint('判断 if elif else')\nnumber = 0\nif (number > 0):\n    print('数字大于0')\nelif (number == 0):",
+        "detail": "p_condition_05",
+        "documentation": {}
+    },
+    {
+        "label": "number",
+        "kind": 5,
+        "importPath": "p_condition_05",
+        "description": "p_condition_05",
+        "peekOfCode": "number = 0\nif (number > 0):\n    print('数字大于0')\nelif (number == 0):\n    print('数字等于0')\nelse:\n    print('数字小于0')\nprint('判断 三目运算符')\nscope = 60\ntip = '合格' if scope >= 60 else '不合格'",
+        "detail": "p_condition_05",
+        "documentation": {}
+    },
+    {
+        "label": "scope",
+        "kind": 5,
+        "importPath": "p_condition_05",
+        "description": "p_condition_05",
+        "peekOfCode": "scope = 60\ntip = '合格' if scope >= 60 else '不合格'\nprint(tip)",
+        "detail": "p_condition_05",
+        "documentation": {}
+    },
+    {
+        "label": "tip",
+        "kind": 5,
+        "importPath": "p_condition_05",
+        "description": "p_condition_05",
+        "peekOfCode": "tip = '合格' if scope >= 60 else '不合格'\nprint(tip)",
+        "detail": "p_condition_05",
+        "documentation": {}
+    },
+    {
+        "label": "Object",
+        "kind": 6,
+        "importPath": "p_data_model_11",
+        "description": "p_data_model_11",
+        "peekOfCode": "class Object:\n    def __new__(cls, *args, **kwargs) -> 'self':\n        return object.__new__(cls)\n    def __init__(self, *args, **kwargs):\n        pass\n    def __call__(self, *args, **kwargs) -> Any:\n        pass\nobj = Object()\nprint(obj)\nprint(obj())",
+        "detail": "p_data_model_11",
+        "documentation": {}
+    },
+    {
+        "label": "Object",
+        "kind": 6,
+        "importPath": "p_data_model_11",
+        "description": "p_data_model_11",
+        "peekOfCode": "class Object:\n    # with 语句会将返回值绑定到 as 子句中的变量，如果有的话。\n    def __enter__(self) -> Optional[Any]:\n        print('__enter__')\n        return [1, 2, 3]\n    def __exit__(self, exc_type, exc_value, traceback):\n        print('__exit__')\n        pass\n# 进入 with 之前调用 obj.__enter__() 并得到 alias（如果有返回的话）\nwith Object() as alias:",
+        "detail": "p_data_model_11",
+        "documentation": {}
+    },
+    {
+        "label": "obj",
+        "kind": 5,
+        "importPath": "p_data_model_11",
+        "description": "p_data_model_11",
+        "peekOfCode": "obj = Object()\nprint(obj)\nprint(obj())\nprint('上下文管理器')\nclass Object:\n    # with 语句会将返回值绑定到 as 子句中的变量，如果有的话。\n    def __enter__(self) -> Optional[Any]:\n        print('__enter__')\n        return [1, 2, 3]\n    def __exit__(self, exc_type, exc_value, traceback):",
+        "detail": "p_data_model_11",
+        "documentation": {}
+    },
+    {
+        "label": "obj",
+        "kind": 5,
+        "importPath": "p_data_model_11",
+        "description": "p_data_model_11",
+        "peekOfCode": "obj = Object()\nwith obj as alias:\n    for item in alias:\n        print(item)\n    pass",
+        "detail": "p_data_model_11",
+        "documentation": {}
+    },
+    {
+        "label": "hello",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "hello = 'hello world'\nprint(hello)\nhello = \"hello world\"\nprint(hello)\nmulti_line = \"\"\"\nhello world\n hello world\n  hello world\n\"\"\"\nprint(multi_line)",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "hello",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "hello = \"hello world\"\nprint(hello)\nmulti_line = \"\"\"\nhello world\n hello world\n  hello world\n\"\"\"\nprint(multi_line)\n# 数值\nprint('数值:')",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "multi_line",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "multi_line = \"\"\"\nhello world\n hello world\n  hello world\n\"\"\"\nprint(multi_line)\n# 数值\nprint('数值:')\nx = 1\ny = 1.1",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "x = 1\ny = 1.1\nz = 1j\nprint(x, y, z)\nprint(type(x), type(y), type(z))\n# 布尔值\nprint('布尔值:')\na = True\nb = False\nprint(a, b)",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "y = 1.1\nz = 1j\nprint(x, y, z)\nprint(type(x), type(y), type(z))\n# 布尔值\nprint('布尔值:')\na = True\nb = False\nprint(a, b)\nprint(type(a), type(b))",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "z",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "z = 1j\nprint(x, y, z)\nprint(type(x), type(y), type(z))\n# 布尔值\nprint('布尔值:')\na = True\nb = False\nprint(a, b)\nprint(type(a), type(b))\nprint(bool(0), bool(1))",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "a = True\nb = False\nprint(a, b)\nprint(type(a), type(b))\nprint(bool(0), bool(1))\n# 列表\nprint('列表:')\nlist1 = [1, 2, 3]\nprint(list1)\nlist2 = ['hello', 'world', '!']",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "b",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "b = False\nprint(a, b)\nprint(type(a), type(b))\nprint(bool(0), bool(1))\n# 列表\nprint('列表:')\nlist1 = [1, 2, 3]\nprint(list1)\nlist2 = ['hello', 'world', '!']\nprint(list2)",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "list1",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "list1 = [1, 2, 3]\nprint(list1)\nlist2 = ['hello', 'world', '!']\nprint(list2)\nlist3 = [True, False, True]\nprint(list3)\nlist4 = list((1, 5, 7, 9, 3))\nprint(list4)\nprint(type(list4))\n# 元组 类似列表，但自身不可变",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "list2",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "list2 = ['hello', 'world', '!']\nprint(list2)\nlist3 = [True, False, True]\nprint(list3)\nlist4 = list((1, 5, 7, 9, 3))\nprint(list4)\nprint(type(list4))\n# 元组 类似列表，但自身不可变\nprint('元组:')\nmy_tuple = (1, 2, 3)",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "list3",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "list3 = [True, False, True]\nprint(list3)\nlist4 = list((1, 5, 7, 9, 3))\nprint(list4)\nprint(type(list4))\n# 元组 类似列表，但自身不可变\nprint('元组:')\nmy_tuple = (1, 2, 3)\nprint(my_tuple)\nmy_tuple = tuple((1, 5, 7, 9, 3))",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "list4",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "list4 = list((1, 5, 7, 9, 3))\nprint(list4)\nprint(type(list4))\n# 元组 类似列表，但自身不可变\nprint('元组:')\nmy_tuple = (1, 2, 3)\nprint(my_tuple)\nmy_tuple = tuple((1, 5, 7, 9, 3))\nprint(my_tuple)\nprint(type(my_tuple))",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "my_tuple",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "my_tuple = (1, 2, 3)\nprint(my_tuple)\nmy_tuple = tuple((1, 5, 7, 9, 3))\nprint(my_tuple)\nprint(type(my_tuple))\n# 集合 类似列表，但里面的元素是无序而不重复的\nprint('集合:')\nset1 = {'a', 'b', 'c'}\nset2 = set(('a', 'b', 'c'))\nprint(set1, set2)",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "my_tuple",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "my_tuple = tuple((1, 5, 7, 9, 3))\nprint(my_tuple)\nprint(type(my_tuple))\n# 集合 类似列表，但里面的元素是无序而不重复的\nprint('集合:')\nset1 = {'a', 'b', 'c'}\nset2 = set(('a', 'b', 'c'))\nprint(set1, set2)\nprint(type(set1), type(set2))\n# 字典 键-值对，一种像 JSON 那样对象",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "set1",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "set1 = {'a', 'b', 'c'}\nset2 = set(('a', 'b', 'c'))\nprint(set1, set2)\nprint(type(set1), type(set2))\n# 字典 键-值对，一种像 JSON 那样对象\nprint('字典:')\nempty_dict = {}\na = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(empty_dict, a)\nprint(type(empty_dict), type(a))",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "set2",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "set2 = set(('a', 'b', 'c'))\nprint(set1, set2)\nprint(type(set1), type(set2))\n# 字典 键-值对，一种像 JSON 那样对象\nprint('字典:')\nempty_dict = {}\na = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(empty_dict, a)\nprint(type(empty_dict), type(a))\nprint('a[\\'one\\']', a['one'])",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "empty_dict",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "empty_dict = {}\na = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(empty_dict, a)\nprint(type(empty_dict), type(a))\nprint('a[\\'one\\']', a['one'])\nprint('a.keys()', a.keys())\nprint('a.values()', a.values())\na.update({'four': 4})\nprint('a.keys()', a.keys())\nprint('a[\\'four\\']', a['four'])",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "p_data_type_02",
+        "description": "p_data_type_02",
+        "peekOfCode": "a = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(empty_dict, a)\nprint(type(empty_dict), type(a))\nprint('a[\\'one\\']', a['one'])\nprint('a.keys()', a.keys())\nprint('a.values()', a.values())\na.update({'four': 4})\nprint('a.keys()', a.keys())\nprint('a[\\'four\\']', a['four'])\n# 类型转换",
+        "detail": "p_data_type_02",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "p_file_handle_09",
+        "description": "p_file_handle_09",
+        "peekOfCode": "file = open('./python/file/my_file.txt', 'r', encoding='utf-8')\nfor i, line in enumerate(file, start = 1):\n    print(f'No {i} => {line}')\nprint('读写整个文件')\ncontents = {'zs': 18, 'ls': 19, 'ww': 20 }\nprint(contents)\nwith open('./python/file/my_file_2.txt', 'w+', encoding='utf-8', newline='') as file:\n    file.write(str(contents))\nwith open('./python/file/my_file_2.txt', 'r+', encoding='utf-8') as file:\n    comments = file.read()",
+        "detail": "p_file_handle_09",
+        "documentation": {}
+    },
+    {
+        "label": "contents",
+        "kind": 5,
+        "importPath": "p_file_handle_09",
+        "description": "p_file_handle_09",
+        "peekOfCode": "contents = {'zs': 18, 'ls': 19, 'ww': 20 }\nprint(contents)\nwith open('./python/file/my_file_2.txt', 'w+', encoding='utf-8', newline='') as file:\n    file.write(str(contents))\nwith open('./python/file/my_file_2.txt', 'r+', encoding='utf-8') as file:\n    comments = file.read()\nprint(comments)\nprint('读写整个json')\nimport json\ncontents = {",
+        "detail": "p_file_handle_09",
+        "documentation": {}
+    },
+    {
+        "label": "contents",
+        "kind": 5,
+        "importPath": "p_file_handle_09",
+        "description": "p_file_handle_09",
+        "peekOfCode": "contents = {\n    'name': '张三',\n    'age': 18,\n    'sex': '男',\n    'hobby': ['football', 'basketball'],\n    'married': False,\n    'birthday': '1990-01-01'\n}\nwith open('./python/file/my_file_3.json', 'w+', encoding='utf-8') as file:\n    file.write(json.dumps(contents))",
+        "detail": "p_file_handle_09",
+        "documentation": {}
+    },
+    {
+        "label": "contents",
+        "kind": 5,
+        "importPath": "p_file_handle_09",
+        "description": "p_file_handle_09",
+        "peekOfCode": "contents = [\n    ['name', 'age', 'sex'],\n    ['张三', 18, '男'],\n    ['李四', 19, '女'],\n    ['王五', 20, '男']\n]\nwith open('./python/file/my_file_5.csv', 'w+', encoding='utf-8', newline= '') as file:\n    writer = csv.writer(file)\n    writer.writerows(contents)\n    writer.writerow(['张三', 18, '男'])",
+        "detail": "p_file_handle_09",
+        "documentation": {}
+    },
+    {
+        "label": "hello_world",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def hello_world():\n    print('hello world')\nhello_world()\nprint(\"函数返回值\")\ndef add(x, y):\n    print(f'{x} + {y} = {x + y}')\n    return x + y\nprint(add(1, 2))\nprint(\"函数参数(将「参数玩法」做成语言级特性)\")\ndef varargs(*args): # *args 表示：接收任意数量的位置参数，会将参数打包成一个元组",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def add(x, y):\n    print(f'{x} + {y} = {x + y}')\n    return x + y\nprint(add(1, 2))\nprint(\"函数参数(将「参数玩法」做成语言级特性)\")\ndef varargs(*args): # *args 表示：接收任意数量的位置参数，会将参数打包成一个元组\n    return args\nprint(varargs(1, 2, 3))\ndef keywords_args(**kwargs): # **kwargs ：接收任意数量关键字参数，会将参数打包成一个字典\n    return kwargs",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "varargs",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def varargs(*args): # *args 表示：接收任意数量的位置参数，会将参数打包成一个元组\n    return args\nprint(varargs(1, 2, 3))\ndef keywords_args(**kwargs): # **kwargs ：接收任意数量关键字参数，会将参数打包成一个字典\n    return kwargs\nprint(keywords_args(a=1, b=2, c=3))\ndef varargs_and_keywords_args(first, *args, **kwargs): # 正常参数，*args, **kwargs 组合形式\n    print(first)\n    print(args)\n    print(kwargs)",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "keywords_args",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def keywords_args(**kwargs): # **kwargs ：接收任意数量关键字参数，会将参数打包成一个字典\n    return kwargs\nprint(keywords_args(a=1, b=2, c=3))\ndef varargs_and_keywords_args(first, *args, **kwargs): # 正常参数，*args, **kwargs 组合形式\n    print(first)\n    print(args)\n    print(kwargs)\n# 记住函数参数的变量名不能有传入进来的键名，比如 第一个参数为 first，那么传入的 kwargs 中不能存在 first 这个键\n# 不然会报错 TypeError: varargs_and_keywords_args() got multiple values for argument 'first'\nvarargs_and_keywords_args(1, 2, 3, a=1, b=2, c=3)",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "varargs_and_keywords_args",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def varargs_and_keywords_args(first, *args, **kwargs): # 正常参数，*args, **kwargs 组合形式\n    print(first)\n    print(args)\n    print(kwargs)\n# 记住函数参数的变量名不能有传入进来的键名，比如 第一个参数为 first，那么传入的 kwargs 中不能存在 first 这个键\n# 不然会报错 TypeError: varargs_and_keywords_args() got multiple values for argument 'first'\nvarargs_and_keywords_args(1, 2, 3, a=1, b=2, c=3)\nprint(\"返回多个参数\")\ndef swap(a, b):\n    return b, a",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "swap",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def swap(a, b):\n    return b, a\na, b = swap(1, 2)\nprint(a, b)\nprint(\"默认值\")\ndef add(x, y=1):\n    return x + y\nprint(add(1))\nprint(add(1, 2))\nprint(\"匿名函数 lambda\")",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "def add(x, y=1):\n    return x + y\nprint(add(1))\nprint(add(1, 2))\nprint(\"匿名函数 lambda\")\nadd = lambda x, y: x + y\nprint(add(1, 2))\nprint((lambda x, y: x ** 2 + y ** 2)(1, 2))",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 5,
+        "importPath": "p_function_06",
+        "description": "p_function_06",
+        "peekOfCode": "add = lambda x, y: x + y\nprint(add(1, 2))\nprint((lambda x, y: x ** 2 + y ** 2)(1, 2))",
+        "detail": "p_function_06",
+        "documentation": {}
+    },
+    {
+        "label": "my_func",
+        "kind": 2,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "def my_func():\n    print('my_func: hi')\nmy_func()\n# 文件处理\nprint('文件处理:')\nwith open('./python/file/my_file.txt', 'r', encoding='utf8') as file:\n    for line in file:\n        print(line)\n# 算术\nprint('算术:')",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "age",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "age = 18\nname = \"张三\"\nprint(name, 'age:', age)\n# 字符串切片\nmsg = \"Hello, world!\"\nprint(msg[2:5])\n# 列表\nmy_list = []\nmy_list.append(1)\nmy_list.append(2)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "name = \"张三\"\nprint(name, 'age:', age)\n# 字符串切片\nmsg = \"Hello, world!\"\nprint(msg[2:5])\n# 列表\nmy_list = []\nmy_list.append(1)\nmy_list.append(2)\nprint('列表内容:')",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "msg",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "msg = \"Hello, world!\"\nprint(msg[2:5])\n# 列表\nmy_list = []\nmy_list.append(1)\nmy_list.append(2)\nprint('列表内容:')\nfor item in my_list:\n    print(item)\n# 判断",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "my_list",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "my_list = []\nmy_list.append(1)\nmy_list.append(2)\nprint('列表内容:')\nfor item in my_list:\n    print(item)\n# 判断\nnum = 200\nprint('判断:')\nif num > 100:",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "num",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "num = 200\nprint('判断:')\nif num > 100:\n    print('num > 100')\nelse:\n    print('num <= 100')\n# 循环\nprint('循环:')\nfor item in range(6):\n    if item == 3: break",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 10 + 20\nprint('10 + 20 =', result)\nresult = 40 - 20\nprint('40 - 20 =', result)\nresult = 10 * 20\nprint('10 * 20 =', result)\nresult = 40 / 20\nprint('40 / 20 =', result)\nresult = 40 // 20\nprint('40 // 20 =', result)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 40 - 20\nprint('40 - 20 =', result)\nresult = 10 * 20\nprint('10 * 20 =', result)\nresult = 40 / 20\nprint('40 / 20 =', result)\nresult = 40 // 20\nprint('40 // 20 =', result)\nresult = 41 % 20\nprint('41 % 20 =', result)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 10 * 20\nprint('10 * 20 =', result)\nresult = 40 / 20\nprint('40 / 20 =', result)\nresult = 40 // 20\nprint('40 // 20 =', result)\nresult = 41 % 20\nprint('41 % 20 =', result)\nresult = 10 ** 2\nprint('10 ** 2 =', result)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 40 / 20\nprint('40 / 20 =', result)\nresult = 40 // 20\nprint('40 // 20 =', result)\nresult = 41 % 20\nprint('41 % 20 =', result)\nresult = 10 ** 2\nprint('10 ** 2 =', result)\n# 加等于\nprint('加等于:')",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 40 // 20\nprint('40 // 20 =', result)\nresult = 41 % 20\nprint('41 % 20 =', result)\nresult = 10 ** 2\nprint('10 ** 2 =', result)\n# 加等于\nprint('加等于:')\ncounter = 0\nprint(counter)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 41 % 20\nprint('41 % 20 =', result)\nresult = 10 ** 2\nprint('10 ** 2 =', result)\n# 加等于\nprint('加等于:')\ncounter = 0\nprint(counter)\ncounter += 3\nprint(counter)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "result = 10 ** 2\nprint('10 ** 2 =', result)\n# 加等于\nprint('加等于:')\ncounter = 0\nprint(counter)\ncounter += 3\nprint(counter)\ncounter = 0\nprint(counter)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "counter",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "counter = 0\nprint(counter)\ncounter += 3\nprint(counter)\ncounter = 0\nprint(counter)\ncounter = counter + 3\nprint(counter)\nmessage = 'Hello'\nprint(message)",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "counter",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "counter = 0\nprint(counter)\ncounter = counter + 3\nprint(counter)\nmessage = 'Hello'\nprint(message)\nmessage += ' world'\nprint(message)\n# f-字符串 (Python 3.6+)\nwebsite = 'Quick Reference'",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "counter",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "counter = counter + 3\nprint(counter)\nmessage = 'Hello'\nprint(message)\nmessage += ' world'\nprint(message)\n# f-字符串 (Python 3.6+)\nwebsite = 'Quick Reference'\nprint(f\"Hello, {website}\")\nnum = 10",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "message",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "message = 'Hello'\nprint(message)\nmessage += ' world'\nprint(message)\n# f-字符串 (Python 3.6+)\nwebsite = 'Quick Reference'\nprint(f\"Hello, {website}\")\nnum = 10\nprint(f\"{num} + 20 = {num + 20}\")",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "website",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "website = 'Quick Reference'\nprint(f\"Hello, {website}\")\nnum = 10\nprint(f\"{num} + 20 = {num + 20}\")",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "num",
+        "kind": 5,
+        "importPath": "p_introduction_01",
+        "description": "p_introduction_01",
+        "peekOfCode": "num = 10\nprint(f\"{num} + 20 = {num + 20}\")",
+        "detail": "p_introduction_01",
+        "documentation": {}
+    },
+    {
+        "label": "list0",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "list0 = []\nprint(list0)\nlist1 = [1, 2, 3]\nprint(list1)\nlist2 = list((1, 2, 3))\nprint(list2)\nlist3 = list(range(1, 11)) # 创建一个列表，包含 1 到 10 的数字\nprint(list3)\nprint('列表 添加元素')\nli = []",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "list1",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "list1 = [1, 2, 3]\nprint(list1)\nlist2 = list((1, 2, 3))\nprint(list2)\nlist3 = list(range(1, 11)) # 创建一个列表，包含 1 到 10 的数字\nprint(list3)\nprint('列表 添加元素')\nli = []\nprint(li)\nli.append(1)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "list2",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "list2 = list((1, 2, 3))\nprint(list2)\nlist3 = list(range(1, 11)) # 创建一个列表，包含 1 到 10 的数字\nprint(list3)\nprint('列表 添加元素')\nli = []\nprint(li)\nli.append(1)\nprint(li)\nli.append(3)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "list3",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "list3 = list(range(1, 11)) # 创建一个列表，包含 1 到 10 的数字\nprint(list3)\nprint('列表 添加元素')\nli = []\nprint(li)\nli.append(1)\nprint(li)\nli.append(3)\nprint(li)\nprint('列表 删除元素')",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = []\nprint(li)\nli.append(1)\nprint(li)\nli.append(3)\nprint(li)\nprint('列表 删除元素')\nli = [1, 2, 3, 4, 5]\nprint(li)\nli.pop() # 删除最后一个元素",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [1, 2, 3, 4, 5]\nprint(li)\nli.pop() # 删除最后一个元素\nprint(li)\ndel li[0] # 删除第一个元素\nprint(li)\nli.remove(3) # 删除值为 3 的元素\nprint(li)\nprint('列表边界')\nli = [1, 2, 3, 4, 5]",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [1, 2, 3, 4, 5]\nprint(li[0])\nprint(li[-1])\nprint(li[1:3])\n# print(li[30]) # 索引越界，程序会报错\nprint('列表 连接')\nli1 = [1, 2, 3]\nli2 = [4, 5, 6]\nprint(li1)\nprint(li2)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li1",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li1 = [1, 2, 3]\nli2 = [4, 5, 6]\nprint(li1)\nprint(li2)\nli1.extend(li2)\nprint(li1)\nli1 = [1, 3, 5]\nprint(li1 + [2, 4, 6])\nprint('列表 搜索')\nli1 = [30, 70, 13, 40, 75, 103, 98, 65]",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li2",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li2 = [4, 5, 6]\nprint(li1)\nprint(li2)\nli1.extend(li2)\nprint(li1)\nli1 = [1, 3, 5]\nprint(li1 + [2, 4, 6])\nprint('列表 搜索')\nli1 = [30, 70, 13, 40, 75, 103, 98, 65]\nprint(li1.index(13)) # 搜索值为 13 的元素索引",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li1",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li1 = [1, 3, 5]\nprint(li1 + [2, 4, 6])\nprint('列表 搜索')\nli1 = [30, 70, 13, 40, 75, 103, 98, 65]\nprint(li1.index(13)) # 搜索值为 13 的元素索引\nprint(li1.index(103, 1, 8)) # 搜索值为 103 的元素索引，索引范围是 1 到 8\nprint(li1.index(103, 4)) # 搜索值为 103 的元素索引，索引范围是 4 到末尾\nprint('列表 生成')\nli = list(filter(lambda x: x % 2 == 1, range(1, 30)))\nprint(li)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li1",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li1 = [30, 70, 13, 40, 75, 103, 98, 65]\nprint(li1.index(13)) # 搜索值为 13 的元素索引\nprint(li1.index(103, 1, 8)) # 搜索值为 103 的元素索引，索引范围是 1 到 8\nprint(li1.index(103, 4)) # 搜索值为 103 的元素索引，索引范围是 4 到末尾\nprint('列表 生成')\nli = list(filter(lambda x: x % 2 == 1, range(1, 30)))\nprint(li)\nli = [ x ** 2 for x in range(1, 30) if x % 2 != 1]\nprint(li)\nli = [x for x in [1, 2, 3, 4, 5] if x % 2 == 1]",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = list(filter(lambda x: x % 2 == 1, range(1, 30)))\nprint(li)\nli = [ x ** 2 for x in range(1, 30) if x % 2 != 1]\nprint(li)\nli = [x for x in [1, 2, 3, 4, 5] if x % 2 == 1]\nprint(li)\nprint('列表 切片')\nli = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(li[2:5]) # 索引 2 到 5， [2, 5) = 2, 3, 4 这三个索引\nprint(li[-5: -2]) # 索引 -5 到 -2，(-5, -2] = -4, -3, -2 这三个索引",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [ x ** 2 for x in range(1, 30) if x % 2 != 1]\nprint(li)\nli = [x for x in [1, 2, 3, 4, 5] if x % 2 == 1]\nprint(li)\nprint('列表 切片')\nli = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(li[2:5]) # 索引 2 到 5， [2, 5) = 2, 3, 4 这三个索引\nprint(li[-5: -2]) # 索引 -5 到 -2，(-5, -2] = -4, -3, -2 这三个索引\n# 索引省略\nprint(li[: 4]) # 索引 0 到 4， [0, 4) = 0, 1, 2, 3 这四个索引]",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [x for x in [1, 2, 3, 4, 5] if x % 2 == 1]\nprint(li)\nprint('列表 切片')\nli = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(li[2:5]) # 索引 2 到 5， [2, 5) = 2, 3, 4 这三个索引\nprint(li[-5: -2]) # 索引 -5 到 -2，(-5, -2] = -4, -3, -2 这三个索引\n# 索引省略\nprint(li[: 4]) # 索引 0 到 4， [0, 4) = 0, 1, 2, 3 这四个索引]\nprint(li[0:4])\nprint(li[4:]) # 索引 4 到末尾， [4, 10) = 4, 5, 6, 7, 8, 9 这六个索引]",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(li[2:5]) # 索引 2 到 5， [2, 5) = 2, 3, 4 这三个索引\nprint(li[-5: -2]) # 索引 -5 到 -2，(-5, -2] = -4, -3, -2 这三个索引\n# 索引省略\nprint(li[: 4]) # 索引 0 到 4， [0, 4) = 0, 1, 2, 3 这四个索引]\nprint(li[0:4])\nprint(li[4:]) # 索引 4 到末尾， [4, 10) = 4, 5, 6, 7, 8, 9 这六个索引]\nprint(li[4:len(li)]) # 索引 4 到末尾， [4, 10) = 4, 5, 6, 7, 8, 9 这六个索引]\nprint(li)\nprint(li[:])",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [13, 10, 25, 2, 34]\nprint(li)\nli.sort()\nprint(li)\nli.reverse()\nprint(li)\nprint('列表 计数')\nli = [1, 3, 5, 1, 5, 4, 1, 10, 8]\nprint(\"count 5：\" + str(li.count(5)))\nprint('列表 填充和重复')",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [1, 3, 5, 1, 5, 4, 1, 10, 8]\nprint(\"count 5：\" + str(li.count(5)))\nprint('列表 填充和重复')\nli = [1, 2, 3]\nprint(li * 3)\nprint(li + [4, 5, 6])\nprint(li + li)\nprint(['repeat'] * 5)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_list_04",
+        "description": "p_list_04",
+        "peekOfCode": "li = [1, 2, 3]\nprint(li * 3)\nprint(li + [4, 5, 6])\nprint(li + li)\nprint(['repeat'] * 5)",
+        "detail": "p_list_04",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "li = [2, 3, 5, 7]\nfor item in li:\n    print(item)\nprint('for 循环带索引')\nli = ['apple', 'banana', 'orange']\nfor index, item in enumerate(li):\n    print(f\"{index} {item}\")\nprint(\"while 循环\")\ni = 0\nwhile i < 5:",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "li = ['apple', 'banana', 'orange']\nfor index, item in enumerate(li):\n    print(f\"{index} {item}\")\nprint(\"while 循环\")\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\nprint(\"结束循环与跳过一轮循环\")\ni = 0",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "i",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "i = 0\nwhile i < 5:\n    print(i)\n    i += 1\nprint(\"结束循环与跳过一轮循环\")\ni = 0\nfor index in range(10):\n    i = index * 10\n    if index == 5:\n        break",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "i",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "i = 0\nfor index in range(10):\n    i = index * 10\n    if index == 5:\n        break\n    if index % 2 == 0:\n        continue\n    print(f'{index} -> {i}')\nprint(\"范围循环\")\nfor i in range(5): # 0 到 4 [0,5)",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "name = ['张三', '李四', '王五']\nage = [18, 20, 25]\nsex = ['男', '女', '男']\nfor n, s, a in zip(name, sex, age):\n    print(f\"姓名：{n} 性别：{s} 年龄：{a}岁\")\nprint(\"列表推导式\")\nli = [x ** 2 for x in range(1, 11)] # 创建一个列表，通过 for 循环生成 1 到 10 的数字的平方\nprint(li)",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "age",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "age = [18, 20, 25]\nsex = ['男', '女', '男']\nfor n, s, a in zip(name, sex, age):\n    print(f\"姓名：{n} 性别：{s} 年龄：{a}岁\")\nprint(\"列表推导式\")\nli = [x ** 2 for x in range(1, 11)] # 创建一个列表，通过 for 循环生成 1 到 10 的数字的平方\nprint(li)",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "sex",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "sex = ['男', '女', '男']\nfor n, s, a in zip(name, sex, age):\n    print(f\"姓名：{n} 性别：{s} 年龄：{a}岁\")\nprint(\"列表推导式\")\nli = [x ** 2 for x in range(1, 11)] # 创建一个列表，通过 for 循环生成 1 到 10 的数字的平方\nprint(li)",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "li",
+        "kind": 5,
+        "importPath": "p_loop_06",
+        "description": "p_loop_06",
+        "peekOfCode": "li = [x ** 2 for x in range(1, 11)] # 创建一个列表，通过 for 循环生成 1 到 10 的数字的平方\nprint(li)",
+        "detail": "p_loop_06",
+        "documentation": {}
+    },
+    {
+        "label": "hello",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "hello = 'hello world'\nprint(hello[0])\nprint(hello[-1])\nprint(type(hello[-1]))\nprint('循环：')\nfor item in \"test\":\n    print(item)\nprint('获取长度：')\nprint(len(\"hello world\"))\nprint(\"重复多次：\")",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "s",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "s = 'hello world'\nprint(f\" s = '{s}'\")\nprint(f\" hello in s { 'hello' in s }\")\nprint(f\" test not in s { 'test' not in s }\")\nprint('字符串拼接：')\ns = 'hello'\nt = 'world'\nw = s + ' ' + t\nprint(w)\nprint('hello' ' ' 'world') # 两个字符串之间可以省略加号",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "s",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "s = 'hello'\nt = 'world'\nw = s + ' ' + t\nprint(w)\nprint('hello' ' ' 'world') # 两个字符串之间可以省略加号\nprint('字符串格式化：')\nname = '张三'\nprint(\"你好，%s!\" % name)\nname = '李四'\nage = 18",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "t",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "t = 'world'\nw = s + ' ' + t\nprint(w)\nprint('hello' ' ' 'world') # 两个字符串之间可以省略加号\nprint('字符串格式化：')\nname = '张三'\nprint(\"你好，%s!\" % name)\nname = '李四'\nage = 18\nprint(\"%s is %d years old.\" % (name, age))",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "w",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "w = s + ' ' + t\nprint(w)\nprint('hello' ' ' 'world') # 两个字符串之间可以省略加号\nprint('字符串格式化：')\nname = '张三'\nprint(\"你好，%s!\" % name)\nname = '李四'\nage = 18\nprint(\"%s is %d years old.\" % (name, age))\ntxt1 = \"my name is {name}, I'm {age} years old.\".format(name='张三', age=18)",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "name = '张三'\nprint(\"你好，%s!\" % name)\nname = '李四'\nage = 18\nprint(\"%s is %d years old.\" % (name, age))\ntxt1 = \"my name is {name}, I'm {age} years old.\".format(name='张三', age=18)\nprint(txt1)\ntxt2 = \"my name is {0}, I'm {1} years old.\".format('张三', 18)\nprint(txt2)\ntxt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "name = '李四'\nage = 18\nprint(\"%s is %d years old.\" % (name, age))\ntxt1 = \"my name is {name}, I'm {age} years old.\".format(name='张三', age=18)\nprint(txt1)\ntxt2 = \"my name is {0}, I'm {1} years old.\".format('张三', 18)\nprint(txt2)\ntxt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)\nprint(txt3)\n# print('控制台输入：')",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "age",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "age = 18\nprint(\"%s is %d years old.\" % (name, age))\ntxt1 = \"my name is {name}, I'm {age} years old.\".format(name='张三', age=18)\nprint(txt1)\ntxt2 = \"my name is {0}, I'm {1} years old.\".format('张三', 18)\nprint(txt2)\ntxt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)\nprint(txt3)\n# print('控制台输入：')\n# name = input('请输入你的名字：')",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "txt1",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "txt1 = \"my name is {name}, I'm {age} years old.\".format(name='张三', age=18)\nprint(txt1)\ntxt2 = \"my name is {0}, I'm {1} years old.\".format('张三', 18)\nprint(txt2)\ntxt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)\nprint(txt3)\n# print('控制台输入：')\n# name = input('请输入你的名字：')\n# print('hello,', name)\nprint('list 拼接字符串，插入分隔符')",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "txt2",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "txt2 = \"my name is {0}, I'm {1} years old.\".format('张三', 18)\nprint(txt2)\ntxt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)\nprint(txt3)\n# print('控制台输入：')\n# name = input('请输入你的名字：')\n# print('hello,', name)\nprint('list 拼接字符串，插入分隔符')\nnames = ['张三', '李四', '王五']\nprint('、'.join(names))",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "txt3",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "txt3 = \"my name is {}, I'm {} years old.\".format('张三', 18)\nprint(txt3)\n# print('控制台输入：')\n# name = input('请输入你的名字：')\n# print('hello,', name)\nprint('list 拼接字符串，插入分隔符')\nnames = ['张三', '李四', '王五']\nprint('、'.join(names))\nprint('字符串切割')\nstr = 'hello world'",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "names",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "names = ['张三', '李四', '王五']\nprint('、'.join(names))\nprint('字符串切割')\nstr = 'hello world'\nprint('[1,)' + str[1:2])\nprint('[0,5)', str[0:5])\nprint('[0,5)', str[:5])\nprint(str[6:])\nprint(str[:5] + str[5:])\nprint('全部 '+ str[:])",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "str",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "str = 'hello world'\nprint('[1,)' + str[1:2])\nprint('[0,5)', str[0:5])\nprint('[0,5)', str[:5])\nprint(str[6:])\nprint(str[:5] + str[5:])\nprint('全部 '+ str[:])\nprint(str[-5:-1])\nstr = '12345' * 10\nprint(str)",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "str",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "str = '12345' * 10\nprint(str)\nprint('步长，每隔多少个字符取一个字符 [start:end:step] start 默认为0， end 默认为字符串长度， step 默认步长为 1')\nprint(str[::5])\nprint(str[0:len(str):5]) # 索引 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 各取一个字符\nprint(str[4::5]) # 索引 4 9 14 19 24 29 34 39 44 49 54 59 64 69 74 79 84 89 94 99 各取一个字符\nprint(str[::-5]) # 索引 100 95 90 85 80 75 70 65 60 55 50 45 40 35 30 25 20 15 10 5 0 各取一个字符\nprint(str[::-1]) # 索引 0 1 2 3 4 ... 99 100 各取一个字符 字符串会倒立\nprint('头尾判断')\nprint('hello python'.startswith('hello')) # 字符串开头判断",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "name",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "name = '张三'\nprint(f\"hello, {name}\")\nnum = 10\nprint(f'{num} + 20 = {num + 20}')\nprint(f\"\"\"hello, {\"python\"}\"\"\") # 可多行的模板字符串\nprint(f\"hello, {\"{name}\"} ?\")\nprint(f\"{{5}} + {{10}} = {{5 + 10}}\") # 占位符被转义了\nprint(f\"\"\"\n      多行字符串:\n      hello",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "num",
+        "kind": 5,
+        "importPath": "p_string_03",
+        "description": "p_string_03",
+        "peekOfCode": "num = 10\nprint(f'{num} + 20 = {num + 20}')\nprint(f\"\"\"hello, {\"python\"}\"\"\") # 可多行的模板字符串\nprint(f\"hello, {\"{name}\"} ?\")\nprint(f\"{{5}} + {{10}} = {{5 + 10}}\") # 占位符被转义了\nprint(f\"\"\"\n      多行字符串:\n      hello\n      {name}\n\"\"\")",
+        "detail": "p_string_03",
+        "documentation": {}
+    },
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "class Person:\n    name: str = 'zs'\n    age: int = 18\n    def __init__(self, name: str, age: int):\n        self.name = name\n        self.age = age\n        self.graduated: bool = False\np = Person('zs', 18)\nprint(p.name, p.age, p.graduated)\nprint('标注自己')",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "class Person:\n    name: str\n    age: int\n    def set_name(self, name) -> \"Person\":\n        self.name = name\n        return self\np = Person()\np.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注自己 3.11+')",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "class Person:\n    name: str\n    age: int\n    def set_name(self: Self, name) -> Self:\n        self.name = name\n        return self\np = Person()\np.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注一个值为类型的参数')",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "say_hi",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def say_hi(name: str, start: str = 'hi'):\n    return start + ', ' + name\nprint(say_hi('张三'))\nprint('位置参数')\ndef calc_sum(*args: int):\n    return sum(args)\nprint(calc_sum(*[1, 2, 3, 4, 5]))\nprint('返回值')\ndef say_hi2(name) -> str:\n    return 'hello, ' + name",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "calc_sum",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def calc_sum(*args: int):\n    return sum(args)\nprint(calc_sum(*[1, 2, 3, 4, 5]))\nprint('返回值')\ndef say_hi2(name) -> str:\n    return 'hello, ' + name\nprint(say_hi2('张三'))\nprint('多种可能的返回值')\nfrom typing import Union\ndef respond(status) -> Union[str, int]:",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "say_hi2",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def say_hi2(name) -> str:\n    return 'hello, ' + name\nprint(say_hi2('张三'))\nprint('多种可能的返回值')\nfrom typing import Union\ndef respond(status) -> Union[str, int]:\n    return \"Ok\" if status else 200\nprint(respond(False))\nprint('关键字参数')\ndef calc_sum(**kwargs: int):",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "respond",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def respond(status) -> Union[str, int]:\n    return \"Ok\" if status else 200\nprint(respond(False))\nprint('关键字参数')\ndef calc_sum(**kwargs: int):\n    return sum(kwargs.values())\nprint(calc_sum(a=1, b=2, c=3))\nprint('多个返回值')\ndef respond() -> (int,str):\n    return 200, \"Ok\"",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "calc_sum",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def calc_sum(**kwargs: int):\n    return sum(kwargs.values())\nprint(calc_sum(a=1, b=2, c=3))\nprint('多个返回值')\ndef respond() -> (int,str):\n    return 200, \"Ok\"\nprint(respond())\nprint('多种可能的返回值')\ndef respond(status) -> int|str:\n    return \"Ok\" if status else 200",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "respond",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def respond() -> (int,str):\n    return 200, \"Ok\"\nprint(respond())\nprint('多种可能的返回值')\ndef respond(status) -> int|str:\n    return \"Ok\" if status else 200\nprint(respond(False))\nprint('属性')\nclass Person:\n    name: str = 'zs'",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "respond",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def respond(status) -> int|str:\n    return \"Ok\" if status else 200\nprint(respond(False))\nprint('属性')\nclass Person:\n    name: str = 'zs'\n    age: int = 18\n    def __init__(self, name: str, age: int):\n        self.name = name\n        self.age = age",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "converter",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def converter(raw, mapper: Type[T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:\n        return default\n# raw: str = input('请输入数字：')\n# result: int = converter(raw, mapper=int, default=0)\n# print(result)\nprint('标注一个值为函数的参数')\nfrom typing import TypeVar, Callable, Any",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "converter",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def converter(raw, mapper: Callable[[Any], T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:\n        return default\ndef is_success(value) -> bool:\n    return value in (0, \"Ok\", True, 'success')\nresp = dict(code = 0, message = \"Ok\", data = [])\nsuccess: bool = converter(resp['message'], mapper=is_success, default= False)\nprint(success)",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "is_success",
+        "kind": 2,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "def is_success(value) -> bool:\n    return value in (0, \"Ok\", True, 'success')\nresp = dict(code = 0, message = \"Ok\", data = [])\nsuccess: bool = converter(resp['message'], mapper=is_success, default= False)\nprint(success)",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "p",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "p = Person('zs', 18)\nprint(p.name, p.age, p.graduated)\nprint('标注自己')\nclass Person:\n    name: str\n    age: int\n    def set_name(self, name) -> \"Person\":\n        self.name = name\n        return self\np = Person()",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "p",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "p = Person()\np.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注自己 3.11+')\nfrom typing import Self\nclass Person:\n    name: str\n    age: int\n    def set_name(self: Self, name) -> Self:\n        self.name = name",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "p.set_name('zs').age",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "p.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注自己 3.11+')\nfrom typing import Self\nclass Person:\n    name: str\n    age: int\n    def set_name(self: Self, name) -> Self:\n        self.name = name\n        return self",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "p",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "p = Person()\np.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注一个值为类型的参数')\nfrom typing import TypeVar, Type\nT = TypeVar('T')\ndef converter(raw, mapper: Type[T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "p.set_name('zs').age",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "p.set_name('zs').age = 18\nprint(p.name, p.age)\nprint('标注一个值为类型的参数')\nfrom typing import TypeVar, Type\nT = TypeVar('T')\ndef converter(raw, mapper: Type[T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:\n        return default",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "T",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "T = TypeVar('T')\ndef converter(raw, mapper: Type[T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:\n        return default\n# raw: str = input('请输入数字：')\n# result: int = converter(raw, mapper=int, default=0)\n# print(result)\nprint('标注一个值为函数的参数')",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "T",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "T = TypeVar(\"T\")\ndef converter(raw, mapper: Callable[[Any], T], default: T) -> T:\n    try:\n        return mapper(raw)\n    except:\n        return default\ndef is_success(value) -> bool:\n    return value in (0, \"Ok\", True, 'success')\nresp = dict(code = 0, message = \"Ok\", data = [])\nsuccess: bool = converter(resp['message'], mapper=is_success, default= False)",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "resp",
+        "kind": 5,
+        "importPath": "p_type_remark_12",
+        "description": "p_type_remark_12",
+        "peekOfCode": "resp = dict(code = 0, message = \"Ok\", data = [])\nsuccess: bool = converter(resp['message'], mapper=is_success, default= False)\nprint(success)",
+        "detail": "p_type_remark_12",
+        "documentation": {}
+    },
+    {
+        "label": "version",
+        "kind": 2,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "def version(major, minor, *parts):\n    print(major, minor, parts)\nversion(1, 10, 1, 'beta') # 类似 major, minor, *parts = (1, 10, 1, 'beta')\ndef version():\n    parts = \"1.10.1.beta\".split('.')\n    return *parts, 'x86'\nprint(version())\n*parts, arch = version()\nprint(parts, arch)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "version",
+        "kind": 2,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "def version():\n    parts = \"1.10.1.beta\".split('.')\n    return *parts, 'x86'\nprint(version())\n*parts, arch = version()\nprint(parts, arch)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "ip,_,port",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "ip,_,port = \"192.168.1.1:8080\".rpartition(':')\nprint(_)\nprint(ip, port)\nprint('过量解包')\nmajor, minor, *rest = \"1.10.1.beta\".split('.') # *rest 获取剩余的元素，rest 只是变量名\nprint(major, minor)\nprint(rest)\nprint('解包取左边')\nmajor, minor, *_ = \"1.10.1.beta\".split('.')\nprint(major, minor)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "a,b,*_",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "a,b,*_ = dict(a=1, b=2, c=3)\nprint(a, b, _)\na,b,*_ = {'a':1, 'b':2, 'c':3}\nprint(a, b, _)\na,b,*_ = dict(a=1, b=2, c=3).values()\nprint(a, b, _)\na,b,*_ = {'a':1, 'b':2, 'c':3}.values()\nprint(a, b, _)\nprint('生成式中的解包')\nchars = (*'hello world', *'python', *'j', 's')",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "a,b,*_",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "a,b,*_ = {'a':1, 'b':2, 'c':3}\nprint(a, b, _)\na,b,*_ = dict(a=1, b=2, c=3).values()\nprint(a, b, _)\na,b,*_ = {'a':1, 'b':2, 'c':3}.values()\nprint(a, b, _)\nprint('生成式中的解包')\nchars = (*'hello world', *'python', *'j', 's')\nprint(chars)\ndigits = [*range(10), *'abcdefg']",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "a,b,*_",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "a,b,*_ = dict(a=1, b=2, c=3).values()\nprint(a, b, _)\na,b,*_ = {'a':1, 'b':2, 'c':3}.values()\nprint(a, b, _)\nprint('生成式中的解包')\nchars = (*'hello world', *'python', *'j', 's')\nprint(chars)\ndigits = [*range(10), *'abcdefg']\nprint(digits)\npart = {'zs': 18, 'ls': 19}",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "a,b,*_",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "a,b,*_ = {'a':1, 'b':2, 'c':3}.values()\nprint(a, b, _)\nprint('生成式中的解包')\nchars = (*'hello world', *'python', *'j', 's')\nprint(chars)\ndigits = [*range(10), *'abcdefg']\nprint(digits)\npart = {'zs': 18, 'ls': 19}\nsummary = { 'ww': 20, **part}\nprint(summary)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "chars",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "chars = (*'hello world', *'python', *'j', 's')\nprint(chars)\ndigits = [*range(10), *'abcdefg']\nprint(digits)\npart = {'zs': 18, 'ls': 19}\nsummary = { 'ww': 20, **part}\nprint(summary)\nprint('迭代中的解包')\nstudents = [\n    ('zs', 18),",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "digits",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "digits = [*range(10), *'abcdefg']\nprint(digits)\npart = {'zs': 18, 'ls': 19}\nsummary = { 'ww': 20, **part}\nprint(summary)\nprint('迭代中的解包')\nstudents = [\n    ('zs', 18),\n    ('ls', 19),\n    ('ww', 20)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "part",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "part = {'zs': 18, 'ls': 19}\nsummary = { 'ww': 20, **part}\nprint(summary)\nprint('迭代中的解包')\nstudents = [\n    ('zs', 18),\n    ('ls', 19),\n    ('ww', 20)\n]\nfor name, age in students:",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "summary",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "summary = { 'ww': 20, **part}\nprint(summary)\nprint('迭代中的解包')\nstudents = [\n    ('zs', 18),\n    ('ls', 19),\n    ('ww', 20)\n]\nfor name, age in students:\n    print(name, age)",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "students",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "students = [\n    ('zs', 18),\n    ('ls', 19),\n    ('ww', 20)\n]\nfor name, age in students:\n    print(name, age)\nstudents = [\n    (1, ('zs', 18)),\n    (2, ('ls', 19)),",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "students",
+        "kind": 5,
+        "importPath": "p_unzip_07",
+        "description": "p_unzip_07",
+        "peekOfCode": "students = [\n    (1, ('zs', 18)),\n    (2, ('ls', 19)),\n]\nfor id, (name, age) in students:\n    print(id, name, age)\nprint('函数中的解包')\ndef version(major, minor, *parts):\n    print(major, minor, parts)\nversion(1, 10, 1, 'beta') # 类似 major, minor, *parts = (1, 10, 1, 'beta')",
+        "detail": "p_unzip_07",
+        "documentation": {}
+    },
+    {
+        "label": "create_request",
+        "kind": 2,
+        "importPath": "qwen_turbo_demo",
+        "description": "qwen_turbo_demo",
+        "peekOfCode": "def create_request(prompt):\n    return {\n        \"model\": \"qwen-turbo\",\n        \"input\": {\n            \"messages\": [\n                {\n                    \"role\": \"system\",\n                    \"content\": \"你是一个乐于助人的AI助手。\"\n                },\n                {",
+        "detail": "qwen_turbo_demo",
+        "documentation": {}
+    },
+    {
+        "label": "get_response",
+        "kind": 2,
+        "importPath": "qwen_turbo_demo",
+        "description": "qwen_turbo_demo",
+        "peekOfCode": "def get_response(prompt):\n    try:\n        # 创建请求数据\n        request_data = create_request(prompt)\n        # 发送POST请求\n        response = requests.post(\n            url=API_URL,\n            headers=headers,\n            data=json.dumps(request_data),\n            timeout=30",
+        "detail": "qwen_turbo_demo",
+        "documentation": {}
+    },
+    {
+        "label": "API_KEY",
+        "kind": 5,
+        "importPath": "qwen_turbo_demo",
+        "description": "qwen_turbo_demo",
+        "peekOfCode": "API_KEY = \"your_api_key_here\"  # 替换为你的API密钥\nAPI_URL = \"https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation\"\n# 定义请求头\nheaders = {\n    \"Authorization\": f\"Bearer {API_KEY}\",\n    \"Content-Type\": \"application/json\"\n}\n# 定义请求体\ndef create_request(prompt):\n    return {",
+        "detail": "qwen_turbo_demo",
+        "documentation": {}
+    },
+    {
+        "label": "API_URL",
+        "kind": 5,
+        "importPath": "qwen_turbo_demo",
+        "description": "qwen_turbo_demo",
+        "peekOfCode": "API_URL = \"https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation\"\n# 定义请求头\nheaders = {\n    \"Authorization\": f\"Bearer {API_KEY}\",\n    \"Content-Type\": \"application/json\"\n}\n# 定义请求体\ndef create_request(prompt):\n    return {\n        \"model\": \"qwen-turbo\",",
+        "detail": "qwen_turbo_demo",
+        "documentation": {}
+    },
+    {
+        "label": "headers",
+        "kind": 5,
+        "importPath": "qwen_turbo_demo",
+        "description": "qwen_turbo_demo",
+        "peekOfCode": "headers = {\n    \"Authorization\": f\"Bearer {API_KEY}\",\n    \"Content-Type\": \"application/json\"\n}\n# 定义请求体\ndef create_request(prompt):\n    return {\n        \"model\": \"qwen-turbo\",\n        \"input\": {\n            \"messages\": [",
+        "detail": "qwen_turbo_demo",
+        "documentation": {}
+    }
+]
